@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Data Visualisation Exercise 1">
+	<meta name="keywords" content="HTML, CSS">
+	<meta name="author" content="Your name here">
+
+	<title>Task 1.1 HTML and CSS Demo Page</title>
+	<!--Insert description of exercise  -->
+
+	<style>
+		/* General page styling */
+		body {
+			font-family: Arial, sans-serif;
+			line-height: 1.6;
+			margin: 0;
+			padding: 0;
+			background-color: #f4f4f4;
+			color: #333;
+		}
+
+		/* Header styles */
+		h1 {
+			background-color: #4CAF50;
+			color: white;
+			padding: 20px;
+			text-align: center;
+		}
+
+		h2 {
+			text-align: center;
+			color: #4CAF50;
+			margin-bottom: 10px;
+		}
+
+		/* Paragraph styling */
+		p {
+			padding: 0 20px;
+			margin: 20px 0;
+			text-align: justify;
+		}
+
+		/* List styling */
+		ul {
+			margin: 20px;
+			padding: 0 40px;
+			list-style-type: square;
+		}
+
+		li {
+			margin-bottom: 10px;
+		}
+
+		/* Image and figure styling */
+		figure {
+			text-align: center;
+			margin: 30px 0;
+		}
+
+		img {
+			border: 2px solid #ddd;
+			border-radius: 8px;
+			width: 50%;
+			display: block;
+			margin: auto;
+			height: auto;
+		}
+
+		figcaption {
+			font-size: 0.9em;
+			color: #666;
+		}
+
+		/* Footer styling */
+		footer {
+			background-color: #333;
+			color: white;
+			text-align: center;
+			padding: 10px 0;
+			position: fixed;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+		}
+
+		.div {
+			text-align: center;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<h1>Title of Article about Interesting Visualisation</h1>
+	<h2>Author of Interesting Article</h2>
+
+	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+		aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+		beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+		sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+		Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
+		numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+		voluptatem.</p>
+
+	<ul>
+		<li>Lorem ipsum dolor sit.</li>
+		<li>Nulla facilisi. Curabitur scelerisque.</li>
+		<li>Donec ac tristique ipsum.</li>
+		<li>Pellentesque vitae nulla.</li>
+	</ul>
+
+	<div class="div">
+		<button type="submit" class="button1"
+			onclick="show('pets2019.png','Fig 1. Percent of most popular pet owned by Australians in 2019')">2019</button>
+		<button type="submit" class="button2"
+			onclick="show('pets21.png','Fig 2. Percent of most popular pet owned by Australians in 2021')">2021</button>
+		<button type="submit" class="button3"
+			onclick="show('pets1921.png','Fig 3. Percent of most popular pet owned by Australians in 2019 and 2021')">Both</button>
+	</div>
+
+	<!-- <figure>
+		<img src="pet_ownership_in_australia_table.png" alt="table">
+		<figcaption>Fig 1. Comparison of Pet Ownership in 2019 and 2021. Data Source: <a
+				href="https://animalmedicinesaustralia.org.au/report/" rel="noopener" target="_blank"><i>Animal
+					Medicines Australia Report</i></a></figcaption>
+	</figure> -->
+	<figure>
+		<img id="ChartImg" src="HTML Starter Template.html" alt="">
+		<figcaption id="ChartCap"></figcaption>
+	</figure>
+
+	<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
+		commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
+		consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+	<footer>COS30045 Data Visualisation</footer>
+
+	<script>
+		function show(Image, ImgDesc) {
+			document.getElementById('ChartImg').src = Image;
+			document.getElementById('ChartImg').alt = ImgDesc;
+			document.getElementById('ChartCap').innerHTML = ImgDesc;
+			document.getElementById('ChartImg').style.display = 'block';
+		}
+	</script>
+</body>
+
+</html>
