@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing with Data</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <h1>Update and Transitions</h1>
+    <p><button class="add">Add</button> <button class="remove">Remove
+        </button></p>
+    <p id="chart"></p>
+    <br>
+    <bf></bf>
+
+    <script>
+        var width = 500; // Width of the SVG
+        var height = 300; // Height of the SVG
+        var padding = 50; // Padding between chart content and edges
+
+        var dataset = [24, 10, 29, 19, 8, 15, 20, 12, 9, 6, 21, 28];
+
+        // Define scales
+        var xScale = d3.scaleBand()
+            .domain(d3.range(dataset.length))
+            .range([padding, width - padding])
+            .padding(0.1);
+
+        var yScale = d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([height - padding, padding]);
+
+        // Create SVG container
+        var svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Add bars to the chart
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function (d, i) { return xScale(i); })
+            .attr("y", function (d) { return yScale(d); })
+            .attr("width", xScale.bandwidth())
+            .attr("height", function (d) { return height - padding - yScale(d); })
+            .attr("fill", "steelblue");
+
+        // Add x-axis
+        svg.append("g")
+            .attr("transform", "translate(0," + (height - padding) + ")")
+            .call(d3.axisBottom(xScale).tickFormat(function (d, i) { return i + 1; }))
+            .selectAll("text")
+            .style("text-anchor", "middle");
+
+        // Add y-axis
+        svg.append("g")
+            .attr("class", "y-axis")
+            .attr("transform", "translate(" + padding + ",0)")
+            .call(d3.axisLeft(yScale).ticks(6))
+            .selectAll("text")
+            .style("text-anchor", "end");
+
+        // Add labels to bars
+        svg.selectAll(".bar-label")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .attr("class", "bar-label")
+            .text(function (d) { return d; })
+            .attr("x", function (d, i) { return xScale(i) + xScale.bandwidth() / 2; })
+            .attr("y", function (d) { return yScale(d) - 5; })
+            .attr("text-anchor", "middle")
+            .attr("fill", "black");
+
+        // Add label for x-axis
+        svg.append("text")
+            .attr("transform", "translate(" + (width / 2) + ", " + (height - 10) + ")")
+            .style("text-anchor", "middle")
+            .text("Data Index");
+
+        // Add label for y-axis
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 20)
+            .attr("x", 0 - (height / 2))
+            .style("text-anchor", "middle")
+            .text("Value");
+
+        // Add button click interaction
+        function update() {
+            var numValues = dataset.length;
+            dataset = [];
+            for (var i = 0; i < numValues; i++) {
+                var newNumber = Math.floor(Math.random() * 30) + 1;
+                dataset.push(newNumber);
+            }
+
+            // Update scales
+            yScale.domain([0, d3.max(dataset)]);
+
+            // Update bars
+            svg.selectAll("rect")
+                .data(dataset)
+                .transition()
+                .duration(1000) // Transition duration
+                .attr("y", function (d) { return yScale(d); })
+                .attr("height", function (d) { return height - padding - yScale(d); })
+                .attr("fill", "tomato");
+
+            // Update labels
+            svg.selectAll(".bar-label")
+                .data(dataset)
+                .transition()
+                .duration(1000)
+                .text(function (d) { return d; })
+                .attr("y", function (d) { return yScale(d) - 5; });
+
+            // Update y-axis
+            svg.select(".y-axis")
+                .transition()
+                .duration(1000)
+                .call(d3.axisLeft(yScale).ticks(6));
+        }
+
+        // Attach event listeners to buttons
+        d3.select(".update").on("click", update);
+
+
+        // // Add x axis with ticks and labels
+        // svg.append("g")
+        //     .attr("transform", "translate(0," + h + ")")
+        //     .call(d3.axisBottom(xScale)
+        //         .ticks(dataset.length)
+        //         .tickFormat(function (d, i) {
+        //             return dataset[i];
+        //         })
+        //         .tickSize(8)
+        //     )
+        //     .selectAll("text")
+        //     .style("text-anchor", "middle")
+        //     .attr("y", 15);
+
+        // // Add y axis with ticks
+        // svg.append("g")
+        //     .call(d3.axisLeft(yScale)
+        //         .ticks(5)
+        //         .tickSize(8)
+        //     )
+        //     .selectAll("text")
+        //     .style("text-anchor", "end")
+        //     .attr("x", -10);
+
+        // // Add labels to bars
+        // svg.selectAll(".bar-label")
+        //     .data(dataset)
+        //     .enter()
+        //     .append("text")
+        //     .attr("class", "bar-label")
+        //     .text(function (d) {
+        //         return d;
+        //     })
+        //     .attr("x", function (d, i) {
+        //         return xScale(i) + (w / dataset.length - 1) / 2;
+        //     })
+        //     .attr("y", function (d) {
+        //         return yScale(d) - 5;
+        //     })
+        //     .attr("text-anchor", "middle")
+        //     .attr("fill", "black");
+
+        // // Add label for x axis
+        // svg.append("text")
+        //     .attr("transform", "translate(" + (w / 2) + " ," + (h + 40) + ")")
+        //     .style("text-anchor", "middle")
+        //     .text("X Axis Label");
+
+        // // Add label for y axis
+        // svg.append("text")
+        //     .attr("transform", "rotate(-90)")
+        //     .attr("y", 0 - 50)
+        //     .attr("x", 0 - (h / 2))
+        //     .attr("dy", "1em")
+        //     .style("text-anchor", "middle")
+        //     .text("Y Axis Label");
+
+        // d3.select("button")
+        //     .on("click", function () {
+        //         alert("Hey, the button works!")
+        //         // .attr("fill", "blue");
+        //     });
+
+    </script>
+    <footer style="color:grey">COS30045 Data Visualisation<br>
+        Joe Bloggs</footer>
+</body>
+
+</html>

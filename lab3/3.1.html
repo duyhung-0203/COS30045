@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing with Data</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <h1>Drawing with Data - Scatter Plot</h1>
+
+    <script>
+        // Example inspired by the image
+
+        var w = 600; // width of the svg
+        var h = 200; // height of the svg
+        var padding = 50; // padding between bars
+
+        var dataset = [
+            [5, 20, 5],
+            [500, 90, 5],
+            [250, 50, 5],
+            [100, 33, 5],
+            [330, 95, 5],
+            [410, 12, 5],
+            [475, 44, 5],
+            [25, 67, 5],
+            [85, 21, 5],
+            [220, 88, 5],
+            // [500, 90, 5]
+        ];
+        // Scale for width based on the data
+        var xScale = d3.scaleLinear()
+            .domain([d3.min(dataset, function (d) { return d[0]; }), d3.max(dataset, function (d) { return d[0]; })])
+            .range([10, w - padding]);
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        // Scale for height based on the data
+        var yScale = d3.scaleLinear()
+            .domain([d3.min(dataset, function (d) { return d[1]; }), d3.max(dataset, function (d) { return d[1]; })])
+            .range([10, h - padding]);
+
+        svg.selectAll("circle")
+            .data(dataset)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) {
+                return xScale(d[0]); // Set x position
+            })
+            .attr("cy", function (d) {
+                return yScale(d[1]); // Set y position
+            })
+            .attr("r", function (d) {
+                return d[2]; // Set radius based on the third value
+            })
+            .attr("fill", function (d) {
+                return (d[0] == 500 && d[1] == 90) ? "red" : "slategrey";
+            }); // Fill color
+
+        // Add labels to the Scatter Plot
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function (d) {
+                return d[0] + "," + d[1];
+            })
+            .attr("x", function (d) {
+                return xScale(d[0]);
+            })
+            .attr("y", function (d) {
+                return yScale(d[1]);
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "11px")
+            .attr("fill", "green");
+
+    </script>
+    <footer style="color:grey">COS30045 Data Visualisation<br>
+        Joe Bloggs</footer>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Data Visualisation using D3.js">
+    <meta name="keywords" content="HTML, CSS, D3, Data Visualization">
+    <meta name="author" content="Do Duy Hung">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2.4 D3 Loading Data with CSV</title>
+    <!-- D3.js Library -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- Importing Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap">
+    <style>
+        /* Global styling reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for the main heading */
+        h1 {
+            color: rgb(2, 222, 251);
+            background-color: rgba(246, 231, 211, 0.588);
+            text-align: center;
+            font-size: 3.3em;
+            padding: 10px 0;
+        }
+
+        /* General body styling */
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Subheading styling */
+        h2 {
+            margin-left: 70px;
+            font-size: 2em;
+            color: #333;
+        }
+
+        /* Paragraph styling */
+        p {
+            margin-left: 2%;
+            font-size: 1.5em;
+        }
+
+        /* Tooltip styling */
+        #tooltip {
+            position: absolute;
+            visibility: hidden;
+            background-color: lightgray;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 10px;
+            border-radius: 15px 15px 0 0;
+            background-color: rgba(239, 95, 95, 0.414);
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Drawing with Data</h1>
+
+    <!-- Tooltip for chart elements -->
+    <div id="tooltip"></div>
+
+    <!-- Section for the chart -->
+    <section>
+        <h2>Numbers of Wombats Bar Chart</h2>
+        <p id="chart"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        COS30045 Data Visualisation
+    </footer>
+
+    <!-- External JavaScript for D3 functionality -->
+    <script src="Task_2.4.js"></script>
+</body>
+
+</html>

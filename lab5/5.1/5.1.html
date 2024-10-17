@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing with Data</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <h1>Update Data</h1>
+    <p><button>Update Once</button></p>
+    <p class="chart"></p>
+    <br>
+    <bf></bf>
+
+    <script>
+        // Example inspired by the image
+
+        var w = 500; // width of the svg
+        var h = 200; // height of the svg
+        var padding = 100; // padding between bars
+
+        var dataset = [24, 10, 29, 19, 8, 15, 20, 12, 9, 6, 21, 28];
+
+        var xScale = d3.scaleLinear()
+            .domain([0, dataset.length - 1])
+            .range([0, w])
+            .paddingInner(0.05);
+
+        var yScale = d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([h, 0]);
+
+        var svg = d3.select(".chart")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function (d, i) {
+                return xScale(i);
+            })
+            .attr("y", function (d) {
+                return yScale(d);
+            })
+            .attr("width", w / dataset.length - 1)
+            .attr("height", function (d) {
+                return h - yScale(d);
+            })
+            .attr("fill", "grey");
+
+        // Add x axis with ticks and labels
+        svg.append("g")
+            .attr("transform", "translate(0," + h + ")")
+            .call(d3.axisBottom(xScale)
+                .ticks(dataset.length)
+                .tickFormat(function (d, i) {
+                    return dataset[i];
+                })
+                .tickSize(8)
+            )
+            .selectAll("text")
+            .style("text-anchor", "middle")
+            .attr("y", 15);
+
+        // Add y axis with ticks
+        svg.append("g")
+            .call(d3.axisLeft(yScale)
+                .ticks(5)
+                .tickSize(8)
+            )
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("x", -10);
+
+        // Add labels to bars
+        svg.selectAll(".bar-label")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .attr("class", "bar-label")
+            .text(function (d) {
+                return d;
+            })
+            .attr("x", function (d, i) {
+                return xScale(i) + (w / dataset.length - 1) / 2;
+            })
+            .attr("y", function (d) {
+                return yScale(d) - 5;
+            })
+            .attr("text-anchor", "middle")
+            .attr("fill", "black");
+
+        // Add label for x axis
+        svg.append("text")
+            .attr("transform", "translate(" + (w / 2) + " ," + (h + 40) + ")") 
+            .style("text-anchor", "middle")
+            .text("X Axis Label");
+
+        // Add label for y axis
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - 50)
+            .attr("x", 0 - (h / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("Y Axis Label");
+
+        d3.select("button")
+            .on("click", function () {
+                alert("Hey, the button works!")
+                // .attr("fill", "blue");
+            });
+
+        function update() {
+            var numValues = dataset.length;
+
+            dataset = [];
+
+            for (var i = 0; i < numValues; i++) {
+                var newNumber = Math.floor(Math.random() * MaxValue);
+                dataset.push(newNumber);
+            }
+
+            svg.selectAll("rect")
+                .data(dataset)
+                .transition()
+                .duration(1000) // Transition duration
+                .attr("y", function (d) {
+                    return h - yScale(d);
+                })
+                .attr("height", function (d) {
+                    return yScale(d);
+                })
+                .attr("fill", "red");
+
+            // Update labels
+            svg.selectAll(".bar-label")
+                .data(dataset)
+                .transition()
+                .duration(1000)
+                .text(function (d) {
+                    return d;
+                })
+                .attr("y", function (d) {
+                    return yScale(d) - 5;
+                });
+        }
+    </script>
+    <footer style="color:grey">COS30045 Data Visualisation<br>
+        Joe Bloggs</footer>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing with Data</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <h1>Drawing with Data</h1>
+
+    <script>
+        // Example inspired by the image
+
+        var w = 500; // width of the svg
+        var h = 200; // height of the svg
+        var padding = 1; // padding between bars
+
+        var dataset = [14, 5, 26, 23, 9];
+
+        var svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", w)
+                    .attr("height", h);
+
+        // Scale for height based on the data
+        var yScale = d3.scaleLinear()
+                       .domain([0, d3.max(dataset)])
+                       .range([0, h]);
+
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function(d, i) {
+                return i * (w / dataset.length); // Set x position
+            })
+            .attr("y", function(d) {
+                return h - yScale(d); // Draw from bottom of the SVG
+            })
+            .attr("width", (w / dataset.length) - padding) // Width of each bar
+            .attr("height", function(d) {
+                return yScale(d); // Height proportional to data values
+            })
+            .attr("fill", "black"); // Fill color of bars
+
+        // Adding labels to visualize the data points
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function(d) {
+                return d;
+            })
+            .attr("x", function(d, i) {
+                return i * (w / dataset.length) + ((w / dataset.length - padding) / 2); // Align label with bars
+            })
+            .attr("y", function(d) {
+                return h - yScale(d) - 5; // Position label slightly above the bar
+            })
+            .attr("text-anchor", "middle") // Center the text
+            .attr("fill", "white"); // Text color
+    </script>
+    <footer style="color:grey">COS30045 Data Visualisation<br>
+        Joe Bloggs</footer>
+</body>
+</html>

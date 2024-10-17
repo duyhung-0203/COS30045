@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <h1>The D3 Journey starts here...</h1>
+    <script>
+
+        var dataset = [14, 5, 26, 23, 9];
+        // example from Murray
+        d3.select("body").selectAll("p")
+            .data(dataset)
+            .enter()
+            .append("p")
+            .text(function (d) {
+                if (d > 10) {
+                    d3.select(this).style("color", "red"); // Set the text color to red if the data is greater than 10
+                    return "Warning: Joe watched " + d + " cat videos today.";
+                } else {
+                    return "Joe watched " + d + " cat videos today.";
+                }
+            });
+    </script>
+    <br>
+    <br>
+    <footer style="color:grey">COS30045 Data Visualisation<br>
+        Joe Bloggs</footer>
+</body>
+
+</html>
