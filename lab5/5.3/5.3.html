@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing with Data</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>]
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <h1>Update and Transitions</h1>
+    <p>
+        <button class="add">Add</button>
+        <button class="remove">Remove</button>
+    </p>
+    <div id="chart"></div>
+
+    <script>
+        const width = 500;
+        const height = 300;
+        const padding = 50;
+        let dataset = [24, 10, 29, 19, 8, 15, 20, 12, 9, 6, 21, 28];
+
+        // Define scales
+        const xScale = d3.scaleBand()
+            .domain(d3.range(dataset.length))
+            .range([padding, width - padding])
+            .padding(0.1);
+
+        const yScale = d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([height - padding, padding]);
+
+        // Create SVG container
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Function to render the bars
+        function renderBars() {
+            const bars = svg.selectAll("rect")
+                .data(dataset, (d, i) => i);
+
+            // Enter new bars
+            bars.enter()
+                .append("rect")
+                .attr("x", width) // Start from right
+                .attr("y", d => yScale(d))
+                .attr("width", xScale.bandwidth())
+                .attr("height", d => height - padding - yScale(d))
+                .attr("fill", "steelblue")
+                .merge(bars)
+                .transition()
+                .duration(500)
+                .attr("x", (d, i) => xScale(i))
+                .attr("y", d => yScale(d))
+                .attr("height", d => height - padding - yScale(d))
+                .attr("fill", "steelblue");
+
+            // Exit old bars
+            bars.exit()
+                .transition()
+                .duration(500)
+                .attr("x", width)
+                .remove();
+
+            // Update labels
+            const labels = svg.selectAll(".bar-label")
+                .data(dataset, (d, i) => i);
+
+            labels.enter()
+                .append("text")
+                .attr("class", "bar-label")
+                .text(d => d)
+                .attr("x", width) // Start from right
+                .attr("y", d => yScale(d) - 5)
+                .attr("text-anchor", "middle")
+                .attr("fill", "black")
+                .merge(labels)
+                .transition()
+                .duration(500)
+                .attr("x", (d, i) => xScale(i) + xScale.bandwidth() / 2)
+                .attr("y", d => yScale(d) - 5);
+
+            labels.exit()
+                .transition()
+                .duration(500)
+                .attr("x", width)
+                .remove();
+        }
+
+        // Initial render
+        renderBars();
+
+        // Add button functionality
+        // Add button functionality
+d3.select(".add").on("click", () => {
+    const newNumber = Math.floor(Math.random() * 30) + 1;
+    dataset.push(newNumber);
+    xScale.domain(d3.range(dataset.length));
+    update();
+});
+
+// Remove button functionality
+d3.select(".remove").on("click", () => {
+    dataset.shift();
+    xScale.domain(d3.range(dataset.length));
+    update();
+});
+
+// Update function to render bars and update scales
+function update() {
+    // Update the y-scale domain based on the new dataset
+    yScale.domain([0, d3.max(dataset)]);
+
+    // Update bars
+    const bars = svg.selectAll("rect")
+        .data(dataset, (d, i) => i);
+
+    bars.enter()
+        .append("rect")
+        .attr("x", width)
+        .attr("y", d => yScale(d))
+        .attr("width", xScale.bandwidth())
+        .attr("height", d => height - padding - yScale(d))
+        .attr("fill", "steelblue")
+        .merge(bars)
+        .transition()
+        .duration(500)
+        .attr("x", (d, i) => xScale(i))
+        .attr("y", d => yScale(d))
+        .attr("height", d => height - padding - yScale(d));
+
+    bars.exit()
+        .transition()
+        .duration(500)
+        .attr("x", width)
+        .remove();
+
+    // Update labels
+    const labels = svg.selectAll(".bar-label")
+        .data(dataset, (d, i) => i);
+
+    labels.enter()
+        .append("text")
+        .attr("class", "bar-label")
+        .text(d => d)
+        .attr("x", width)
+        .attr("y", d => yScale(d) - 5)
+        .attr("text-anchor", "middle")
+        .attr("fill", "black")
+        .merge(labels)
+        .transition()
+        .duration(500)
+        .attr("x", (d, i) => xScale(i) + xScale.bandwidth() / 2)
+        .attr("y", d => yScale(d) - 5);
+
+    labels.exit()
+        .transition()
+        .duration(500)
+        .attr("x", width)
+        .remove();
+
+    // Update the y-axis with a transition
+    svg.select(".y-axis")
+        .transition()
+        .duration(500)
+        .call(d3.axisLeft(yScale).ticks(6));
+}
+
+        // Add axes
+        svg.append("g")
+            .attr("transform", `translate(0,${height - padding})`)
+            .call(d3.axisBottom(xScale).tickFormat((d, i) => i + 1))
+            .selectAll("text")
+            .style("text-anchor", "middle");
+
+        svg.append("g")
+            .attr("class", "y-axis")
+            .attr("transform", `translate(${padding},0)`)
+            .call(d3.axisLeft(yScale).ticks(6))
+            .selectAll("text")
+            .style("text-anchor", "end");
+
+        // Update the y-axis with a transition
+        function updateYAxis() {
+            yScale.domain([0, d3.max(dataset)]);
+            svg.select(".y-axis")
+                .transition()
+                .duration(500)
+                .call(d3.axisLeft(yScale).ticks(6));
+        }
+
+        // Update data and re-render bars with a smoother transition
+        function update() {
+            renderBars();
+            updateYAxis();
+        }
+    </script>
+    <footer style="color:grey">COS30045 Data Visualisation<br>Joe Bloggs</footer>
+</body>
+
+</html>

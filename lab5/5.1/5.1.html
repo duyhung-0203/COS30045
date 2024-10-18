@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing with Data</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <h1>Update Data</h1>
+    <p><button class="update">Update Once</button></p>
+    <div class="chart"></div>
+
+    <script>
+        const w = 500; // width of the svg
+        const h = 300; // height of the svg
+        const padding = 50; // padding around the chart
+        let dataset = [24, 10, 29, 19, 8, 15, 20, 12, 9, 6, 21, 28];
+
+        // Define scales
+        const xScale = d3.scaleBand()
+            .domain(d3.range(dataset.length))
+            .rangeRound([0, w])
+            .paddingInner(0.05);
+
+        const yScale = d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([h - padding, padding]);
+
+        // Create SVG container and shift it to the right
+        const svg = d3.select(".chart")
+            .append("svg")
+            .attr("width", w + 100) // Extend the width to accommodate the right shift
+            .attr("height", h)
+            .append("g")
+            .attr("transform", "translate(50, 0)"); // Move the chart to the right by 50 pixels
+
+        // Function to render the bars
+        function renderBars() {
+            svg.selectAll("rect")
+                .data(dataset)
+                .join(
+                    enter => enter.append("rect")
+                        .attr("x", (d, i) => xScale(i))
+                        .attr("y", d => yScale(d))
+                        .attr("width", xScale.bandwidth())
+                        .attr("height", d => h - padding - yScale(d))
+                        .attr("fill", "steelblue"),
+                    update => update.transition()
+                        .duration(1000)
+                        .attr("y", d => yScale(d))
+                        .attr("height", d => h - padding - yScale(d)),
+                    exit => exit.remove()
+                );
+        }
+
+        // Initial render
+        renderBars();
+
+        // Add x-axis
+        svg.append("g")
+            .attr("transform", `translate(0,${h - padding})`)
+            .call(d3.axisBottom(xScale).tickFormat((d, i) => i + 1))
+            .selectAll("text")
+            .style("text-anchor", "middle");
+
+        // Add y-axis
+        svg.append("g")
+            .attr("class", "y-axis")
+            .call(d3.axisLeft(yScale).ticks(5));
+
+        // Add labels to bars
+        svg.selectAll(".bar-label")
+            .data(dataset)
+            .join("text")
+            .attr("class", "bar-label")
+            .attr("x", (d, i) => xScale(i) + xScale.bandwidth() / 2)
+            .attr("y", d => yScale(d) - 5)
+            .attr("text-anchor", "middle")
+            .text(d => d);
+
+        // Update function to generate new random data and re-render bars
+        function update() {
+            dataset = Array.from({ length: dataset.length }, () => Math.floor(Math.random() * 30) + 1);
+            yScale.domain([0, d3.max(dataset)]);
+            renderBars();
+            svg.select(".y-axis")
+                .transition()
+                .duration(1000)
+                .call(d3.axisLeft(yScale).ticks(5));
+
+            // Update labels
+            svg.selectAll(".bar-label")
+                .data(dataset)
+                .join("text")
+                .transition()
+                .duration(1000)
+                .text(d => d)
+                .attr("x", (d, i) => xScale(i) + xScale.bandwidth() / 2)
+                .attr("y", d => yScale(d) - 5);
+        }
+
+        // Add event listener to update button
+        d3.select(".update").on("click", update);
+    </script>
+
+    <footer style="color:grey">COS30045 Data Visualisation<br>Joe Bloggs</footer>
+</body>
+
+</html>

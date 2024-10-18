@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing with Data</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <h1>Update and Transitions</h1>
+    <p>
+        <button class="update">Update</button>
+        <button class="transition1">Transition 1</button>
+        <button class="transition2">Transition 2</button>
+    </p>
+    <div id="chart"></div>
+
+    <script>
+        const width = 500;
+        const height = 300;
+        const padding = 50;
+        let dataset = [24, 10, 29, 19, 8, 15, 20, 12, 9, 6, 21, 28];
+
+        // Define scales
+        const xScale = d3.scaleBand()
+            .domain(d3.range(dataset.length))
+            .range([padding, width - padding])
+            .padding(0.1);
+
+        const yScale = d3.scaleLinear()
+            .domain([0, d3.max(dataset)])
+            .range([height - padding, padding]);
+
+        // Create SVG container
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Function to render the bars
+        function renderBars() {
+            svg.selectAll("rect")
+                .data(dataset)
+                .join(
+                    enter => enter.append("rect")
+                        .attr("x", (d, i) => xScale(i))
+                        .attr("y", d => yScale(d))
+                        .attr("width", xScale.bandwidth())
+                        .attr("height", d => height - padding - yScale(d))
+                        .attr("fill", "steelblue"),
+                    update => update,
+                    exit => exit.remove()
+                );
+        }
+
+        // Initial render
+        renderBars();
+
+        // Function for a smooth transition (Transition 1)
+        function transition1() {
+            svg.selectAll("rect")
+                .data(dataset)
+                .transition()
+                .duration(2000) // Longer transition for smoother animation
+                .ease(d3.easeCubicInOut) // Easing function for a smooth start and end
+                .attr("y", d => yScale(d))
+                .attr("height", d => height - padding - yScale(d))
+                .attr("fill", "tomato");
+        }
+
+        // Function for a staggered transition (Transition 2)
+        function transition2() {
+            svg.selectAll("rect")
+                .data(dataset)
+                .transition()
+                .delay((d, i) => i * 100) // Staggered delay for each bar
+                .duration(1000)
+                .ease(d3.easeBounceOut) // Different easing function for a bouncy effect
+                .attr("y", d => yScale(d))
+                .attr("height", d => height - padding - yScale(d))
+                .attr("fill", "steelblue");
+        }
+
+        // Update function to change dataset and apply transition
+        function update() {
+            dataset = Array.from({ length: dataset.length }, () => Math.floor(Math.random() * 30) + 1);
+            yScale.domain([0, d3.max(dataset)]);
+            renderBars();
+            svg.select(".y-axis")
+                .transition()
+                .duration(1000)
+                .call(d3.axisLeft(yScale).ticks(6));
+        }
+
+        // Attach event listeners to buttons
+        d3.select(".update").on("click", update);
+        d3.select(".transition1").on("click", transition1);
+        d3.select(".transition2").on("click", transition2);
+
+        // Add axes
+        svg.append("g")
+            .attr("transform", `translate(0,${height - padding})`)
+            .call(d3.axisBottom(xScale).tickFormat((d, i) => i + 1))
+            .selectAll("text")
+            .style("text-anchor", "middle");
+
+        svg.append("g")
+            .attr("class", "y-axis")
+            .attr("transform", `translate(${padding},0)`)
+            .call(d3.axisLeft(yScale).ticks(6))
+            .selectAll("text")
+            .style("text-anchor", "end");
+    </script>
+
+    <footer style="color:grey">COS30045 Data Visualisation<br>Joe Bloggs</footer>
+</body>
+
+</html>
