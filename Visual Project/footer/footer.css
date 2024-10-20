@@ -1,0 +1,75 @@
+/* General footer styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    animation: fadeIn 2s ease-in-out; /* Fade-in effect when the page loads */
+}
+
+/* Footer content styling */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content h3 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 1rem;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effects */
+.footer-content h3:hover {
+    color: #f39c12; /* Change color on hover */
+}
+
+.footer-content p:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    color: #3498db; /* Change color on hover */
+}
+
+.footer-names {
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.footer-year {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+    }
+
+    .footer-content h3 {
+        font-size: 1.25rem;
+    }
+
+    .footer-content p {
+        font-size: 0.9rem;
+    }
+}

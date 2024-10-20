@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Footer Example</title>
+    <link rel="stylesheet" href="footer.css"> <!-- Liên kết đến file CSS -->
+</head>
+<body>
+    <footer>
+        <div class="footer-content">
+            <h3>Swinburne University of Technology</h3>
+            <p>Address: No 2, Duong Khue, Hanoi, Vietnam</p>
+            <div class="footer-names">
+                <p>Members:</p>
+                <p>Do Duy Hung</p>
+                <p>Vu Xuan Sang</p>
+                <p>Nguyen Hoang Hai</p>
+            </div>
+            <div class="footer-year" id="footer-year">
+                &copy; <span id="year"></span> Swinburne University of Technology
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script to dynamically update the year in the footer
+        document.getElementById("year").innerText = new Date().getFullYear();
+    </script>
+</body>
+</html>
