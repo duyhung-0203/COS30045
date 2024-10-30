@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Đảm bảo body chiếm ít nhất toàn bộ chiều cao màn hình */
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1400px;
+    width: 100%;
+    margin-top: 20px;
+    flex: 1; /* Đẩy footer xuống dưới cùng khi nội dung không đủ */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: auto; /* Đẩy footer xuống cuối trang */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content h3 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-content h3:hover {
+    color: #f39c12;
+}
+
+.footer-content p:hover {
+    transform: scale(1.05);
+    color: #3498db;
+}
+
+.footer-names {
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.footer-year {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+    }
+
+    .footer-content h3 {
+        font-size: 1.25rem;
+    }
+
+    .footer-content p {
+        font-size: 0.9rem;
+    }
+}

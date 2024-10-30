@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Pie Chart with Year Selection</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <h1>Health Expenditure Distribution by Country</h1>
+    <a href="#" class="back-home-button">Back to Home</a>
+    <div class="container">
+        <div id="controls">
+            <h3>Select Year</h3>
+            <select id="year-select">
+                <!-- Options sẽ được thêm động qua JavaScript -->
+            </select>
+            <h3>Select Countries</h3>
+            <button id="toggle-select">Select All</button>
+            <div id="country-list"></div>
+        </div>
+        <div id="chart"></div>
+        <div id="description">
+            <h3>Details</h3>
+            <div id="details-list"></div>
+        </div>
+    </div>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+
+        <footer>
+        <div class="footer-content">
+            <h3>Swinburne University of Technology</h3>
+            <p>Address: No 2, Duong Khue, Hanoi, Vietnam</p>
+            <div class="footer-names">
+                <p>Members:</p>
+                <p>Do Duy Hung</p>
+                <p>Vu Xuan Sang</p>
+                <p>Nguyen Hoang Hai</p>
+            </div>
+            <div class="footer-year" id="footer-year">
+                &copy; <span id="year"></span> Swinburne University of Technology
+            </div>
+        </div>
+    </footer>
+        <script>
+        document.getElementById("year").innerText = new Date().getFullYear();
+    </script>
+</body>
+</html>
