@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Healthcare Expenditure</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    .bar {
+      stroke-width: 1;
+    }
+
+    .axis text {
+      font-size: 12px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 5px;
+      cursor: pointer;
+      height: 25px;
+      width: 25px;
+      border: none;
+    }
+
+    #toggle-gov {
+      background-color: #1f77b4;
+    }
+
+    #toggle-voluntary{
+      background-color: #ff7f0e;
+    }
+
+    #toggle-other{
+      background-color: #2ca02c;
+    }
+
+    /* Tooltip styling */
+    .tooltip {
+      position: absolute;
+      background-color: #f9f9f9;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      pointer-events: none;
+      font-size: 14px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+    }
+
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .toggle-container h3 {
+      margin-left: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Health Expenditure per capita in 2019</h2>
+
+  <svg id="chart" width="1500" height="500"></svg>
+  <div id="tooltip" class="tooltip"></div>
+  <div class="toggle-container">
+    <button type="submit" id="toggle-gov"></button>
+    <h3>Government/Compulsory</h3>
+  </div>
+  <div class="toggle-container">
+    <button type="submit" id="toggle-voluntary"></button>
+    <h3>Voluntary/Out-of-pocket</h3>
+  </div>
+  <div class="toggle-container">
+    <button type="submit" id="toggle-other"></button>
+    <h3>Other</h3>
+  </div>
+
+  <script>
+    const margin = { top: 20, right: 30, bottom: 150, left: 80 };
+    const width = 1200 - margin.left - margin.right;
+    const height = 600 - margin.top - margin.bottom;
+
+    const svg = d3.select("#chart")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const tooltip = d3.select("#tooltip");
+
+    const categories = ["Government/Compulsory", "Voluntary/Out-of-pocket", "Other"];
+    let visibility = { "Government/Compulsory": true, "Voluntary/Out-of-pocket": true, "Other": true };
+
+    d3.csv("36exif.csv").then(data => {
+      data.forEach(d => {
+        d["Government/Compulsory"] = +d["Government/Compulsory"];
+        d["Voluntary/Out-of-pocket"] = +d["Voluntary/Out-of-pocket"];
+        d["Other"] = d["Other"] ? +d["Other"] : 0;
+        d.Total = +d.Total;
+      });
+
+      const x = d3.scaleBand()
+        .domain(data.map(d => d[""]))
+        .range([0, width])
+        .padding(0.1);
+
+      const y = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.Total)])
+        .nice()
+        .range([height, 0]);
+
+      svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(45)")
+        .style("text-anchor", "start");
+
+      svg.append("g")
+        .call(d3.axisLeft(y));
+
+      const color = d3.scaleOrdinal()
+        .domain(categories)
+        .range(["#1f77b4", "#ff7f0e", "#2ca02c"]);
+
+      function updateChart() {
+        const visibleCategories = categories.filter(category => visibility[category]);
+        const stack = d3.stack().keys(visibleCategories);
+        const stackedData = stack(data);
+
+        const layers = svg.selectAll(".layer")
+          .data(stackedData, d => d.key);
+
+        // Remove old layers
+        layers.exit().remove();
+
+        // Update existing layers
+        layers.enter()
+          .append("g")
+          .attr("class", d => `layer ${d.key.replace(/\W/g, '')}`)
+          .attr("fill", d => color(d.key))
+          .merge(layers)
+          .selectAll("rect")
+          .data(d => d, d => d.data[""])
+          .join("rect")
+          .attr("x", d => x(d.data[""]))
+          .transition()
+          .duration(750)
+          .attr("y", d => y(d[1]))
+          .attr("height", d => y(d[0]) - y(d[1]))
+          .attr("width", x.bandwidth())
+          .on("end", function () {
+            d3.select(this)
+              .on("mouseover", (event, d) => showTooltip(event, d))
+              .on("mousemove", (event) => moveTooltip(event))
+              .on("mouseout", () => hideTooltip());
+          });
+      }
+
+      // Tooltip functions
+      function showTooltip(event, d) {
+        tooltip.transition().duration(200).style("opacity", 1);
+        tooltip.html(`
+          <strong>Country:</strong> ${d.data[""]}<br/>
+          <strong>Government/Compulsory:</strong> ${d.data["Government/Compulsory"]}<br/>
+          <strong>Voluntary/Out-of-pocket:</strong> ${d.data["Voluntary/Out-of-pocket"]}<br/>
+          <strong>Other:</strong> ${d.data["Other"]}<br/>
+          <strong>Total:</strong> ${d.data.Total}
+        `);
+      }
+
+      function moveTooltip(event) {
+        tooltip.style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY - 28) + "px");
+      }
+
+      function hideTooltip() {
+        tooltip.transition().duration(200).style("opacity", 0);
+      }
+
+      // Initial rendering of the chart
+      updateChart();
+
+      // Toggle visibility of each category and update chart
+      document.getElementById("toggle-gov").addEventListener("click", () => toggleCategory("Government/Compulsory"));
+      document.getElementById("toggle-voluntary").addEventListener("click", () => toggleCategory("Voluntary/Out-of-pocket"));
+      document.getElementById("toggle-other").addEventListener("click", () => toggleCategory("Other"));
+
+      function toggleCategory(category) {
+        visibility[category] = !visibility[category];
+        updateChart();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
