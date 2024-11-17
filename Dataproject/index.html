@@ -27,15 +27,14 @@
       background-color: #1f77b4;
     }
 
-    #toggle-voluntary{
+    #toggle-voluntary {
       background-color: #ff7f0e;
     }
 
-    #toggle-other{
+    #toggle-other {
       background-color: #2ca02c;
     }
 
-    /* Tooltip styling */
     .tooltip {
       position: absolute;
       background-color: #f9f9f9;
@@ -58,14 +57,43 @@
       margin-left: 10px;
       font-size: 16px;
     }
+
+    .chart-container {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    #chart {
+      flex-grow: 1;
+    }
+
+    .country-search {
+      width: 200px;
+      margin-bottom: 5px;
+    }
+
+    .country-list {
+      max-height: 400px;
+      overflow-y: scroll;
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: 200px;
+    }
   </style>
 </head>
 
 <body>
   <h2>Health Expenditure per capita in 2019</h2>
 
-  <svg id="chart" width="1500" height="500"></svg>
+  <div class="chart-container">
+    <svg id="chart" width="1500" height="500"></svg>
+    <div>
+      <input type="text" id="country-search" class="country-search" placeholder="Search country...">
+      <div id="country-list" class="country-list"></div>
+    </div>
+  </div>
   <div id="tooltip" class="tooltip"></div>
+
   <div class="toggle-container">
     <button type="submit" id="toggle-gov"></button>
     <h3>Government/Compulsory</h3>
@@ -91,9 +119,9 @@
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const tooltip = d3.select("#tooltip");
-
     const categories = ["Government/Compulsory", "Voluntary/Out-of-pocket", "Other"];
     let visibility = { "Government/Compulsory": true, "Voluntary/Out-of-pocket": true, "Other": true };
+    const defaultBarWidth = 30;
 
     d3.csv("36exif.csv").then(data => {
       data.forEach(d => {
@@ -103,25 +131,12 @@
         d.Total = +d.Total;
       });
 
-      const x = d3.scaleBand()
-        .domain(data.map(d => d[""]))
-        .range([0, width])
-        .padding(0.1);
+      const allCountries = data.map(d => d[""]);
 
       const y = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.Total)])
         .nice()
         .range([height, 0]);
-
-      svg.append("g")
-        .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(x))
-        .selectAll("text")
-        .attr("y", 0)
-        .attr("x", 9)
-        .attr("dy", ".35em")
-        .attr("transform", "rotate(45)")
-        .style("text-anchor", "start");
 
       svg.append("g")
         .call(d3.axisLeft(y));
@@ -130,76 +145,165 @@
         .domain(categories)
         .range(["#1f77b4", "#ff7f0e", "#2ca02c"]);
 
-      function updateChart() {
-        const visibleCategories = categories.filter(category => visibility[category]);
-        const stack = d3.stack().keys(visibleCategories);
-        const stackedData = stack(data);
+      function updateChart(selectedCountries) {
+        const rangeWidth = Math.min(selectedCountries.length * defaultBarWidth, width);
+
+        const x = d3.scaleBand()
+          .domain(selectedCountries)
+          .range([0, rangeWidth])
+          .padding(0.1);
+
+        const stack = d3.stack().keys(categories.filter(category => visibility[category]));
+        const filteredData = data.filter(d => selectedCountries.includes(d[""]));
+        const stackedData = stack(filteredData);
+
+        svg.select(".x-axis").remove();
+
+        svg.append("g")
+          .attr("class", "x-axis")
+          .attr("transform", `translate(0,${height})`)
+          .call(d3.axisBottom(x))
+          .selectAll("text")
+          .attr("y", 0)
+          .attr("x", 9)
+          .attr("dy", ".35em")
+          .attr("transform", "rotate(45)")
+          .style("text-anchor", "start");
 
         const layers = svg.selectAll(".layer")
           .data(stackedData, d => d.key);
 
-        // Remove old layers
         layers.exit().remove();
-
-        // Update existing layers
-        layers.enter()
+        const layerEnter = layers.enter()
           .append("g")
           .attr("class", d => `layer ${d.key.replace(/\W/g, '')}`)
-          .attr("fill", d => color(d.key))
-          .merge(layers)
-          .selectAll("rect")
-          .data(d => d, d => d.data[""])
-          .join("rect")
+          .attr("fill", d => color(d.key));
+
+        const mergedLayers = layerEnter.merge(layers);
+
+        const bars = mergedLayers.selectAll("rect")
+          .data(d => d, d => d.data[""]);
+
+        bars.exit()
+          .transition().duration(500)
+          .attr("y", height)
+          .attr("height", 0)
+          .remove();
+
+        bars.enter()
+          .append("rect")
           .attr("x", d => x(d.data[""]))
-          .transition()
-          .duration(750)
+          .attr("y", height)
+          .attr("height", 0)
+          .attr("width", x.bandwidth())
+          .merge(bars)
+          .transition().duration(1000)
+          .attr("x", d => x(d.data[""]))
           .attr("y", d => y(d[1]))
           .attr("height", d => y(d[0]) - y(d[1]))
           .attr("width", x.bandwidth())
-          .on("end", function () {
-            d3.select(this)
-              .on("mouseover", (event, d) => showTooltip(event, d))
-              .on("mousemove", (event) => moveTooltip(event))
-              .on("mouseout", () => hideTooltip());
-          });
+          .selection()
+          .on("mouseover", (event, d) => showTooltip(event, d))
+          .on("mousemove", moveTooltip)
+          .on("mouseout", hideTooltip);
+
       }
 
-      // Tooltip functions
+
+      function populateCountryList() {
+        const countryList = document.getElementById("country-list");
+
+        const allContainer = document.createElement("div");
+        const allCheckbox = document.createElement("input");
+        allCheckbox.type = "checkbox";
+        allCheckbox.id = "all-countries";
+        allCheckbox.addEventListener("change", () => selectAllCountries(allCheckbox.checked));
+        const allLabel = document.createElement("label");
+        allLabel.setAttribute("for", "all-countries");
+        allLabel.textContent = "All";
+        allContainer.appendChild(allCheckbox);
+        allContainer.appendChild(allLabel);
+        countryList.appendChild(allContainer);
+
+        data.forEach(d => {
+          const container = document.createElement("div");
+          container.classList.add("country-container");
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.value = d[""];
+          checkbox.classList.add("country-checkbox");
+          checkbox.addEventListener("change", handleCountrySelection);
+
+          const label = document.createElement("label");
+          label.setAttribute("for", d[""]);
+          label.textContent = d[""];
+
+          container.appendChild(checkbox);
+          container.appendChild(label);
+          countryList.appendChild(container);
+        });
+      }
+
+      function selectAllCountries(isChecked) {
+        document.querySelectorAll('.country-checkbox').forEach(checkbox => {
+          checkbox.checked = isChecked;
+        });
+        handleCountrySelection();
+      }
+
+      function handleCountrySelection() {
+        const selectedCountries = Array.from(document.querySelectorAll('#country-list input[type="checkbox"]:checked'))
+          .filter(checkbox => checkbox.id !== "all-countries")
+          .map(checkbox => checkbox.value);
+        updateChart(selectedCountries);
+      }
+
+      document.getElementById("country-search").addEventListener("input", (event) => {
+        const searchTerm = event.target.value.toLowerCase();
+        document.querySelectorAll('#country-list .country-container').forEach(container => {
+          const label = container.querySelector("label");
+          const isMatch = label.textContent.toLowerCase().includes(searchTerm);
+          container.style.display = isMatch ? "block" : "none";
+        });
+      });
+
       function showTooltip(event, d) {
+        const category = d3.select(event.target.parentNode).datum().key;
+        const segmentValue = d[1] - d[0];
+        const totalValue = d.data["Total"];
+
         tooltip.transition().duration(200).style("opacity", 1);
         tooltip.html(`
-          <strong>Country:</strong> ${d.data[""]}<br/>
-          <strong>Government/Compulsory:</strong> ${d.data["Government/Compulsory"]}<br/>
-          <strong>Voluntary/Out-of-pocket:</strong> ${d.data["Voluntary/Out-of-pocket"]}<br/>
-          <strong>Other:</strong> ${d.data["Other"]}<br/>
-          <strong>Total:</strong> ${d.data.Total}
-        `);
+    <strong>Country:</strong> ${d.data[""]}<br/>
+    <strong>${category}:</strong> ${segmentValue}<br/>
+    <strong>Total:</strong> ${totalValue}
+  `)
+          .style("left", `${event.pageX + 10}px`)
+          .style("top", `${event.pageY - 28}px`);
       }
 
       function moveTooltip(event) {
-        tooltip.style("left", (event.pageX + 10) + "px")
-          .style("top", (event.pageY - 28) + "px");
+        tooltip.style("left", (event.pageX + 10) + "px").style("top", (event.pageY - 28) + "px");
       }
 
       function hideTooltip() {
-        tooltip.transition().duration(200).style("opacity", 0);
+        tooltip.transition().duration(500).style("opacity", 0);
       }
 
-      // Initial rendering of the chart
-      updateChart();
-
-      // Toggle visibility of each category and update chart
       document.getElementById("toggle-gov").addEventListener("click", () => toggleCategory("Government/Compulsory"));
       document.getElementById("toggle-voluntary").addEventListener("click", () => toggleCategory("Voluntary/Out-of-pocket"));
       document.getElementById("toggle-other").addEventListener("click", () => toggleCategory("Other"));
 
       function toggleCategory(category) {
         visibility[category] = !visibility[category];
-        updateChart();
+        handleCountrySelection();
       }
+
+      populateCountryList();
+      selectAllCountries(true);
     });
   </script>
-
 </body>
 
 </html>
