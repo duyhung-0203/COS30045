@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Global Health Insights</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="map.html">GDP Overview</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pie.html">National Health Spending</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="hehe.html">Capital Health Spending</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#insights">Insights</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="text-center">Global Health related to GDP and Life Expectancy</h1>
+        <!-- <p class="text-center">Choose an indicator and year to explore data on the map.</p> -->
+        <!-- Story Section -->
+        <section id="story-section" class="story-section1">
+            <div class="row align-items-center">
+                <div class="col-md-6 story-text">
+                    <h2>Our Story</h2>
+                    <p>
+                        This map highlights the distribution of health expenditure across countries, offering a
+                        unique perspective on how nations allocate their resources to public health. By visualizing this
+                        data, users can identify disparities between regions, where higher spending does not always
+                        correlate with better health outcomes.
+                    </p>
+                    <p>
+                        The purpose of this map is to provide policymakers, researchers, and the public with insights
+                        into global health financing. By selecting specific years and countries, users can explore
+                        changes over time and understand the critical role of health investment in shaping the
+                        well-being of populations.
+                    </p>
+                </div>
+                <div class="col-md-6 story-image text-center">
+                    <img src="assets/map.jpg!w700wp" alt="Visualization Illustration" class="img-fluid rounded">
+                </div>
+            </div>
+        </section>
+        <p class="text-center">Choose an indicator and year to explore data on the map.</p>
+        <div class="dropdown-container text-center">
+            <label for="indicator">Select Indicator:</label>
+            <select id="indicator">
+                <option value="GDP">GDP (Billion USD)</option>
+                <option value="Life Expectancy">Life Expectancy (Years)</option>
+            </select>
+
+            <label for="year">Select Year:</label>
+            <select id="year">
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+    </div>
+    <div class="legend-container">
+        <h3 class="legend-title">Legend</h3>
+        <div class="color-legend">
+            <span class="min-label">Low</span>
+            <div class="gradient-bar"></div>
+            <span class="max-label">High</span>
+        </div>
+        <p class="legend-units">Units: <span id="legend-units">Billion USD</span></p>
+    </div>
+
+    <div id="map-container"></div>
+
+
+    <footer>
+        <div class="footer-content">
+            <h3>Swinburne University of Technology</h3>
+            <p>Address: No 2, Duong Khue, Hanoi, Vietnam</p>
+            <p>Members: Duy Hung, Xuan Sang, Hoang Hai</p>
+            <div class="footer-year">
+                &copy; <span id="year"></span> Swinburne University of Technology
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const width = document.querySelector("#map-container").clientWidth;
+        const height = document.querySelector("#map-container").clientHeight;
+
+        const svg = d3.select("#map-container")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("class", "map-svg");
+
+        const projection = d3.geoNaturalEarth1()
+            .scale((width / 5)) // Adjust scale to better fit the screen
+            .translate([width / 2, height / 2]);
+
+        const path = d3.geoPath().projection(projection);
+
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("position", "absolute")
+            .style("background-color", "rgba(0, 0, 0, 0.7)")
+            .style("color", "#fff")
+            .style("padding", "8px")
+            .style("border-radius", "4px")
+            .style("pointer-events", "none")
+            .style("opacity", 0);
+
+        Promise.all([
+            d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
+            d3.json("data/final_data_multi_year.json")
+        ]).then(([world, data]) => {
+            const dataLookup = {};
+            data.forEach(d => {
+                dataLookup[d["Country Code"]] = {
+                    "GDP": {
+                        "2019": d["2019 GDP (Billion $)"],
+                        "2020": d["2020 GDP (Billion $)"]
+                    },
+                    "Life Expectancy": {
+                        "2019": d["2019 Life Expectancy"],
+                        "2020": d["2020 Life Expectancy"]
+                    }
+                };
+            });
+
+            world.features.forEach(d => {
+                d.properties.data = dataLookup[d.id] || {
+                    "GDP": { "2019": 0, "2020": 0 },
+                    "Life Expectancy": { "2019": 0, "2020": 0 }
+                };
+            });
+
+            function updateMap(indicator, year) {
+                const colorDomain = indicator === "GDP" ? [1, 15000] : [50, 85];
+                const colorScale = d3.scaleSequential(d3.interpolateBlues).domain(colorDomain);
+
+                svg.selectAll("path")
+                    .data(world.features)
+                    .join("path")
+                    .attr("d", path)
+                    .attr("fill", d => {
+                        const value = d.properties.data[indicator][year];
+                        return value > 0 ? colorScale(value) : "#f0f0f0";
+                    })
+                    .attr("stroke", "#000")
+                    .on("mouseover", function (event, d) {
+                        d3.select(this).attr("stroke", "orange").attr("stroke-width", 2);
+                        tooltip
+                            .style("opacity", 1)
+                            .html(`
+                            <strong>${d.properties.name || "Unknown"}</strong><br>
+                            ${indicator} ${year}: ${d.properties.data[indicator][year] || "No Data"}
+                        `)
+                            .style("left", `${event.pageX + 10}px`)
+                            .style("top", `${event.pageY + 10}px`);
+                    })
+                    .on("mousemove", function (event) {
+                        tooltip
+                            .style("left", `${event.pageX + 10}px`)
+                            .style("top", `${event.pageY + 10}px`);
+                    })
+                    .on("mouseout", function () {
+                        d3.select(this).attr("stroke", "#000").attr("stroke-width", 1);
+                        tooltip.style("opacity", 0);
+                    });
+            }
+
+            updateMap("GDP", "2019");
+
+            function updateLegend(indicator) {
+                const legendUnits = document.getElementById("legend-units");
+                const gradientBar = document.querySelector(".gradient-bar");
+
+                if (indicator === "GDP") {
+                    legendUnits.textContent = "Billion USD";
+                    gradientBar.style.background = "linear-gradient(to right, #e0f3ff, #084594)"; // Blue gradient for GDP
+                } else if (indicator === "Life Expectancy") {
+                    legendUnits.textContent = "Years";
+                    gradientBar.style.background = "linear-gradient(to right, #e0f3ff, #084594)"; // Red gradient for Life Expectancy
+                }
+            }
+
+            // Call this function whenever the indicator changes
+            d3.select("#indicator").on("change", function () {
+                const selectedIndicator = d3.select("#indicator").property("value");
+                const selectedYear = d3.select("#year").property("value");
+                updateMap(selectedIndicator, selectedYear);
+                updateLegend(selectedIndicator); // Update the legend
+            });
+        });
+    </script>
+</body>
+
+</html>

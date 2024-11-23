@@ -1,0 +1,1702 @@
+[
+  {
+    "Country": "Aruba",
+    "Country Code": "ABW",
+    "2019 Life Expectancy": 76.248,
+    "2020 Life Expectancy": 75.723,
+    "2019 GDP (Billion $)": 3.3957988827,
+    "2020 GDP (Billion $)": 2.5589063039,
+    "lat": 12.5,
+    "long": -69.9667
+  },
+  {
+    "Country": "Afghanistan",
+    "Country Code": "AFG",
+    "2019 Life Expectancy": 63.565,
+    "2020 Life Expectancy": 62.575,
+    "2019 GDP (Billion $)": 18.7994444901,
+    "2020 GDP (Billion $)": 19.9559290521,
+    "lat": 33.0,
+    "long": 65.0
+  },
+  {
+    "Country": "Angola",
+    "Country Code": "AGO",
+    "2019 Life Expectancy": 62.448,
+    "2020 Life Expectancy": 62.261,
+    "2019 GDP (Billion $)": 70.897962732,
+    "2020 GDP (Billion $)": 48.5015612036,
+    "lat": -12.5,
+    "long": 18.5
+  },
+  {
+    "Country": "Albania",
+    "Country Code": "ALB",
+    "2019 Life Expectancy": 79.282,
+    "2020 Life Expectancy": 76.989,
+    "2019 GDP (Billion $)": 15.4018261273,
+    "2020 GDP (Billion $)": 15.1627342052,
+    "lat": 41.0,
+    "long": 20.0
+  },
+  {
+    "Country": "United Arab Emirates",
+    "Country Code": "ARE",
+    "2019 Life Expectancy": 79.726,
+    "2020 Life Expectancy": 78.946,
+    "2019 GDP (Billion $)": 417.9897217427,
+    "2020 GDP (Billion $)": 349.4730153302,
+    "lat": 24.0,
+    "long": 54.0
+  },
+  {
+    "Country": "Argentina",
+    "Country Code": "ARG",
+    "2019 Life Expectancy": 77.284,
+    "2020 Life Expectancy": 75.892,
+    "2019 GDP (Billion $)": 447.7546836152,
+    "2020 GDP (Billion $)": 385.740508437,
+    "lat": -34.0,
+    "long": -64.0
+  },
+  {
+    "Country": "Armenia",
+    "Country Code": "ARM",
+    "2019 Life Expectancy": 75.439,
+    "2020 Life Expectancy": 72.173,
+    "2019 GDP (Billion $)": 13.6192905392,
+    "2020 GDP (Billion $)": 12.6416985832,
+    "lat": 40.0,
+    "long": 45.0
+  },
+  {
+    "Country": "Antigua and Barbuda",
+    "Country Code": "ATG",
+    "2019 Life Expectancy": 78.691,
+    "2020 Life Expectancy": 78.841,
+    "2019 GDP (Billion $)": 1.7253518519,
+    "2020 GDP (Billion $)": 1.4107962963,
+    "lat": 17.05,
+    "long": -61.8
+  },
+  {
+    "Country": "Australia",
+    "Country Code": "AUS",
+    "2019 Life Expectancy": 82.9,
+    "2020 Life Expectancy": 83.2,
+    "2019 GDP (Billion $)": 1394.6713259606,
+    "2020 GDP (Billion $)": 1330.3815449093,
+    "lat": -27.0,
+    "long": 133.0
+  },
+  {
+    "Country": "Austria",
+    "Country Code": "AUT",
+    "2019 Life Expectancy": 81.8951219512,
+    "2020 Life Expectancy": 81.1926829268,
+    "2019 GDP (Billion $)": 444.5961558453,
+    "2020 GDP (Billion $)": 435.0493169557,
+    "lat": 47.3333,
+    "long": 13.3333
+  },
+  {
+    "Country": "Azerbaijan",
+    "Country Code": "AZE",
+    "2019 Life Expectancy": 73.102,
+    "2020 Life Expectancy": 66.868,
+    "2019 GDP (Billion $)": 48.1742352941,
+    "2020 GDP (Billion $)": 42.693,
+    "lat": 40.5,
+    "long": 47.5
+  },
+  {
+    "Country": "Burundi",
+    "Country Code": "BDI",
+    "2019 Life Expectancy": 62.351,
+    "2020 Life Expectancy": 61.566,
+    "2019 GDP (Billion $)": 2.5765188798,
+    "2020 GDP (Billion $)": 2.6496802614,
+    "lat": -3.5,
+    "long": 30.0
+  },
+  {
+    "Country": "Belgium",
+    "Country Code": "BEL",
+    "2019 Life Expectancy": 81.9951219512,
+    "2020 Life Expectancy": 80.6951219512,
+    "2019 GDP (Billion $)": 535.8658043498,
+    "2020 GDP (Billion $)": 526.0215134742,
+    "lat": 50.8333,
+    "long": 4.0
+  },
+  {
+    "Country": "Benin",
+    "Country Code": "BEN",
+    "2019 Life Expectancy": 60.454,
+    "2020 Life Expectancy": 60.088,
+    "2019 GDP (Billion $)": 14.390708751,
+    "2020 GDP (Billion $)": 15.6867418839,
+    "lat": 9.5,
+    "long": 2.25
+  },
+  {
+    "Country": "Burkina Faso",
+    "Country Code": "BFA",
+    "2019 Life Expectancy": 60.039,
+    "2020 Life Expectancy": 59.731,
+    "2019 GDP (Billion $)": 16.0328135017,
+    "2020 GDP (Billion $)": 17.7250105308,
+    "lat": 13.0,
+    "long": -2.0
+  },
+  {
+    "Country": "Bangladesh",
+    "Country Code": "BGD",
+    "2019 Life Expectancy": 72.806,
+    "2020 Life Expectancy": 71.968,
+    "2019 GDP (Billion $)": 351.2316551508,
+    "2020 GDP (Billion $)": 373.9794426533,
+    "lat": 24.0,
+    "long": 90.0
+  },
+  {
+    "Country": "Bulgaria",
+    "Country Code": "BGR",
+    "2019 Life Expectancy": 75.112195122,
+    "2020 Life Expectancy": 73.6585365854,
+    "2019 GDP (Billion $)": 68.8810102455,
+    "2020 GDP (Billion $)": 70.3687583951,
+    "lat": 43.0,
+    "long": 25.0
+  },
+  {
+    "Country": "Bahrain",
+    "Country Code": "BHR",
+    "2019 Life Expectancy": 80.019,
+    "2020 Life Expectancy": 79.174,
+    "2019 GDP (Billion $)": 38.6533180851,
+    "2020 GDP (Billion $)": 34.6218077128,
+    "lat": 26.0,
+    "long": 50.55
+  },
+  {
+    "Country": "Bosnia and Herzegovina",
+    "Country Code": "BIH",
+    "2019 Life Expectancy": 77.241,
+    "2020 Life Expectancy": 76.225,
+    "2019 GDP (Billion $)": 20.4826087554,
+    "2020 GDP (Billion $)": 20.2260365644,
+    "lat": 44.0,
+    "long": 18.0
+  },
+  {
+    "Country": "Belarus",
+    "Country Code": "BLR",
+    "2019 Life Expectancy": 74.2268292683,
+    "2020 Life Expectancy": 72.4572195122,
+    "2019 GDP (Billion $)": 64.4101228474,
+    "2020 GDP (Billion $)": 61.3717553262,
+    "lat": 53.0,
+    "long": 28.0
+  },
+  {
+    "Country": "Belize",
+    "Country Code": "BLZ",
+    "2019 Life Expectancy": 73.931,
+    "2020 Life Expectancy": 72.854,
+    "2019 GDP (Billion $)": 2.3867924761,
+    "2020 GDP (Billion $)": 2.0477278101,
+    "lat": 17.25,
+    "long": -88.75
+  },
+  {
+    "Country": "Bermuda",
+    "Country Code": "BMU",
+    "2019 Life Expectancy": 81.033,
+    "2020 Life Expectancy": 81.136,
+    "2019 GDP (Billion $)": 7.423465,
+    "2020 GDP (Billion $)": 6.887147,
+    "lat": 32.3333,
+    "long": -64.75
+  },
+  {
+    "Country": "Brazil",
+    "Country Code": "BRA",
+    "2019 Life Expectancy": 75.338,
+    "2020 Life Expectancy": 74.009,
+    "2019 GDP (Billion $)": 1873.2882051864,
+    "2020 GDP (Billion $)": 1476.1072311941,
+    "lat": -10.0,
+    "long": -55.0
+  },
+  {
+    "Country": "Barbados",
+    "Country Code": "BRB",
+    "2019 Life Expectancy": 77.257,
+    "2020 Life Expectancy": 77.393,
+    "2019 GDP (Billion $)": 5.36713925,
+    "2020 GDP (Billion $)": 4.77975655,
+    "lat": 13.1667,
+    "long": -59.5333
+  },
+  {
+    "Country": "Brunei Darussalam",
+    "Country Code": "BRN",
+    "2019 Life Expectancy": 74.748,
+    "2020 Life Expectancy": 74.795,
+    "2019 GDP (Billion $)": 13.4692353647,
+    "2020 GDP (Billion $)": 12.005799654,
+    "lat": 4.5,
+    "long": 114.6667
+  },
+  {
+    "Country": "Bhutan",
+    "Country Code": "BTN",
+    "2019 Life Expectancy": 71.391,
+    "2020 Life Expectancy": 71.609,
+    "2019 GDP (Billion $)": 2.7356834086,
+    "2020 GDP (Billion $)": 2.4576040424,
+    "lat": 27.5,
+    "long": 90.5
+  },
+  {
+    "Country": "Botswana",
+    "Country Code": "BWA",
+    "2019 Life Expectancy": 65.464,
+    "2020 Life Expectancy": 65.647,
+    "2019 GDP (Billion $)": 16.7259081485,
+    "2020 GDP (Billion $)": 14.9602911059,
+    "lat": -22.0,
+    "long": 24.0
+  },
+  {
+    "Country": "Central African Republic",
+    "Country Code": "CAF",
+    "2019 Life Expectancy": 55.025,
+    "2020 Life Expectancy": 54.604,
+    "2019 GDP (Billion $)": 2.2213013514,
+    "2020 GDP (Billion $)": 2.3267209004,
+    "lat": 7.0,
+    "long": 21.0
+  },
+  {
+    "Country": "Canada",
+    "Country Code": "CAN",
+    "2019 Life Expectancy": 82.223902439,
+    "2020 Life Expectancy": 81.6604878049,
+    "2019 GDP (Billion $)": 1743.7251836725,
+    "2020 GDP (Billion $)": 1655.6847300002,
+    "lat": 60.0,
+    "long": -95.0
+  },
+  {
+    "Country": "Switzerland",
+    "Country Code": "CHE",
+    "2019 Life Expectancy": 83.9048780488,
+    "2020 Life Expectancy": 83.0,
+    "2019 GDP (Billion $)": 721.3691127267,
+    "2020 GDP (Billion $)": 741.9994060056,
+    "lat": 47.0,
+    "long": 8.0
+  },
+  {
+    "Country": "Chile",
+    "Country Code": "CHL",
+    "2019 Life Expectancy": 80.326,
+    "2020 Life Expectancy": 79.377,
+    "2019 GDP (Billion $)": 278.2850587195,
+    "2020 GDP (Billion $)": 254.0421593093,
+    "lat": -30.0,
+    "long": -71.0
+  },
+  {
+    "Country": "China",
+    "Country Code": "CHN",
+    "2019 Life Expectancy": 77.968,
+    "2020 Life Expectancy": 78.077,
+    "2019 GDP (Billion $)": 14279.9685062717,
+    "2020 GDP (Billion $)": 14687.744162801,
+    "lat": 35.0,
+    "long": 105.0
+  },
+  {
+    "Country": "Cameroon",
+    "Country Code": "CMR",
+    "2019 Life Expectancy": 61.584,
+    "2020 Life Expectancy": 60.833,
+    "2019 GDP (Billion $)": 39.6677575277,
+    "2020 GDP (Billion $)": 40.7732411771,
+    "lat": 6.0,
+    "long": 12.0
+  },
+  {
+    "Country": "Colombia",
+    "Country Code": "COL",
+    "2019 Life Expectancy": 76.752,
+    "2020 Life Expectancy": 74.769,
+    "2019 GDP (Billion $)": 323.0317011928,
+    "2020 GDP (Billion $)": 270.3483425415,
+    "lat": 4.0,
+    "long": -72.0
+  },
+  {
+    "Country": "Comoros",
+    "Country Code": "COM",
+    "2019 Life Expectancy": 64.068,
+    "2020 Life Expectancy": 64.166,
+    "2019 GDP (Billion $)": 1.1950195319,
+    "2020 GDP (Billion $)": 1.2250391966,
+    "lat": -12.1667,
+    "long": 44.25
+  },
+  {
+    "Country": "Costa Rica",
+    "Country Code": "CRI",
+    "2019 Life Expectancy": 79.427,
+    "2020 Life Expectancy": 79.277,
+    "2019 GDP (Billion $)": 64.4176705212,
+    "2020 GDP (Billion $)": 62.3956107604,
+    "lat": 10.0,
+    "long": -84.0
+  },
+  {
+    "Country": "Cuba",
+    "Country Code": "CUB",
+    "2019 Life Expectancy": 77.611,
+    "2020 Life Expectancy": 77.567,
+    "2019 GDP (Billion $)": 103.4276,
+    "2020 GDP (Billion $)": 107.3518,
+    "lat": 21.5,
+    "long": -80.0
+  },
+  {
+    "Country": "Cyprus",
+    "Country Code": "CYP",
+    "2019 Life Expectancy": 81.397,
+    "2020 Life Expectancy": 81.391,
+    "2019 GDP (Billion $)": 25.9470201024,
+    "2020 GDP (Billion $)": 25.2271897449,
+    "lat": 35.0,
+    "long": 33.0
+  },
+  {
+    "Country": "Germany",
+    "Country Code": "DEU",
+    "2019 Life Expectancy": 81.2926829268,
+    "2020 Life Expectancy": 81.0414634146,
+    "2019 GDP (Billion $)": 3889.1775892549,
+    "2020 GDP (Billion $)": 3887.7271619144,
+    "lat": 51.0,
+    "long": 9.0
+  },
+  {
+    "Country": "Djibouti",
+    "Country Code": "DJI",
+    "2019 Life Expectancy": 63.085,
+    "2020 Life Expectancy": 62.694,
+    "2019 GDP (Billion $)": 3.0888536386,
+    "2020 GDP (Billion $)": 3.185150981,
+    "lat": 11.5,
+    "long": 43.0
+  },
+  {
+    "Country": "Dominica",
+    "Country Code": "DMA",
+    "2019 Life Expectancy": 73.559,
+    "2020 Life Expectancy": 73.649,
+    "2019 GDP (Billion $)": 0.611537037,
+    "2020 GDP (Billion $)": 0.5042148148,
+    "lat": 15.4167,
+    "long": -61.3333
+  },
+  {
+    "Country": "Denmark",
+    "Country Code": "DNK",
+    "2019 Life Expectancy": 81.4512195122,
+    "2020 Life Expectancy": 81.6024390244,
+    "2019 GDP (Billion $)": 346.4987379616,
+    "2020 GDP (Billion $)": 354.7627483387,
+    "lat": 56.0,
+    "long": 10.0
+  },
+  {
+    "Country": "Dominican Republic",
+    "Country Code": "DOM",
+    "2019 Life Expectancy": 73.577,
+    "2020 Life Expectancy": 72.889,
+    "2019 GDP (Billion $)": 88.9413725582,
+    "2020 GDP (Billion $)": 78.8446562982,
+    "lat": 19.0,
+    "long": -70.6667
+  },
+  {
+    "Country": "Algeria",
+    "Country Code": "DZA",
+    "2019 Life Expectancy": 76.474,
+    "2020 Life Expectancy": 74.453,
+    "2019 GDP (Billion $)": 193.4596620907,
+    "2020 GDP (Billion $)": 164.8734153252,
+    "lat": 28.0,
+    "long": 3.0
+  },
+  {
+    "Country": "Ecuador",
+    "Country Code": "ECU",
+    "2019 Life Expectancy": 77.297,
+    "2020 Life Expectancy": 72.153,
+    "2019 GDP (Billion $)": 107.595829,
+    "2020 GDP (Billion $)": 95.865472,
+    "lat": -2.0,
+    "long": -77.5
+  },
+  {
+    "Country": "Spain",
+    "Country Code": "ESP",
+    "2019 Life Expectancy": 83.8317073171,
+    "2020 Life Expectancy": 82.3317073171,
+    "2019 GDP (Billion $)": 1394.3200551294,
+    "2020 GDP (Billion $)": 1278.1288678755,
+    "lat": 40.0,
+    "long": -4.0
+  },
+  {
+    "Country": "Estonia",
+    "Country Code": "EST",
+    "2019 Life Expectancy": 78.6463414634,
+    "2020 Life Expectancy": 78.5951219512,
+    "2019 GDP (Billion $)": 31.2904532935,
+    "2020 GDP (Billion $)": 31.3304198511,
+    "lat": 59.0,
+    "long": 26.0
+  },
+  {
+    "Country": "Ethiopia",
+    "Country Code": "ETH",
+    "2019 Life Expectancy": 65.838,
+    "2020 Life Expectancy": 65.371,
+    "2019 GDP (Billion $)": 95.9126077223,
+    "2020 GDP (Billion $)": 107.6577343924,
+    "lat": 8.0,
+    "long": 38.0
+  },
+  {
+    "Country": "Finland",
+    "Country Code": "FIN",
+    "2019 Life Expectancy": 81.9829268293,
+    "2020 Life Expectancy": 81.9317073171,
+    "2019 GDP (Billion $)": 268.5149169725,
+    "2020 GDP (Billion $)": 271.8860773821,
+    "lat": 64.0,
+    "long": 26.0
+  },
+  {
+    "Country": "Fiji",
+    "Country Code": "FJI",
+    "2019 Life Expectancy": 67.893,
+    "2020 Life Expectancy": 67.924,
+    "2019 GDP (Billion $)": 5.4444071981,
+    "2020 GDP (Billion $)": 4.4324662199,
+    "lat": -18.0,
+    "long": 175.0
+  },
+  {
+    "Country": "France",
+    "Country Code": "FRA",
+    "2019 Life Expectancy": 82.8268292683,
+    "2020 Life Expectancy": 82.1756097561,
+    "2019 GDP (Billion $)": 2728.8702467059,
+    "2020 GDP (Billion $)": 2647.4186915985,
+    "lat": 46.0,
+    "long": 2.0
+  },
+  {
+    "Country": "Faroe Islands",
+    "Country Code": "FRO",
+    "2019 Life Expectancy": 82.6463414634,
+    "2020 Life Expectancy": 82.8975609756,
+    "2019 GDP (Billion $)": 3.2664327342,
+    "2020 GDP (Billion $)": 3.2620458834,
+    "lat": 62.0,
+    "long": -7.0
+  },
+  {
+    "Country": "Gabon",
+    "Country Code": "GAB",
+    "2019 Life Expectancy": 66.603,
+    "2020 Life Expectancy": 66.531,
+    "2019 GDP (Billion $)": 16.8744054602,
+    "2020 GDP (Billion $)": 15.3145771678,
+    "lat": -1.0,
+    "long": 11.75
+  },
+  {
+    "Country": "United Kingdom",
+    "Country Code": "GBR",
+    "2019 Life Expectancy": 81.4048780488,
+    "2020 Life Expectancy": 80.3512195122,
+    "2019 GDP (Billion $)": 2851.4071649078,
+    "2020 GDP (Billion $)": 2697.8065922939,
+    "lat": 54.0,
+    "long": -2.0
+  },
+  {
+    "Country": "Georgia",
+    "Country Code": "GEO",
+    "2019 Life Expectancy": 73.47,
+    "2020 Life Expectancy": 72.765,
+    "2019 GDP (Billion $)": 17.6383371169,
+    "2020 GDP (Billion $)": 16.0108692157,
+    "lat": 42.0,
+    "long": 43.5
+  },
+  {
+    "Country": "Ghana",
+    "Country Code": "GHA",
+    "2019 Life Expectancy": 64.74,
+    "2020 Life Expectancy": 64.114,
+    "2019 GDP (Billion $)": 68.3379692477,
+    "2020 GDP (Billion $)": 70.0430955037,
+    "lat": 8.0,
+    "long": -2.0
+  },
+  {
+    "Country": "Guinea",
+    "Country Code": "GIN",
+    "2019 Life Expectancy": 59.72,
+    "2020 Life Expectancy": 59.327,
+    "2019 GDP (Billion $)": 13.4428614964,
+    "2020 GDP (Billion $)": 14.1778358414,
+    "lat": 11.0,
+    "long": -10.0
+  },
+  {
+    "Country": "Guinea-Bissau",
+    "Country Code": "GNB",
+    "2019 Life Expectancy": 60.882,
+    "2020 Life Expectancy": 59.999,
+    "2019 GDP (Billion $)": 1.4864765821,
+    "2020 GDP (Billion $)": 1.5204799846,
+    "lat": 12.0,
+    "long": -15.0
+  },
+  {
+    "Country": "Equatorial Guinea",
+    "Country Code": "GNQ",
+    "2019 Life Expectancy": 61.644,
+    "2020 Life Expectancy": 60.708,
+    "2019 GDP (Billion $)": 11.3641335497,
+    "2020 GDP (Billion $)": 9.8938160077,
+    "lat": 2.0,
+    "long": 10.0
+  },
+  {
+    "Country": "Greece",
+    "Country Code": "GRC",
+    "2019 Life Expectancy": 81.6390243902,
+    "2020 Life Expectancy": 81.287804878,
+    "2019 GDP (Billion $)": 205.2527608894,
+    "2020 GDP (Billion $)": 188.4803372856,
+    "lat": 39.0,
+    "long": 22.0
+  },
+  {
+    "Country": "Grenada",
+    "Country Code": "GRD",
+    "2019 Life Expectancy": 74.863,
+    "2020 Life Expectancy": 74.924,
+    "2019 GDP (Billion $)": 1.2134851852,
+    "2020 GDP (Billion $)": 1.0434111111,
+    "lat": 12.1167,
+    "long": -61.6667
+  },
+  {
+    "Country": "Greenland",
+    "Country Code": "GRL",
+    "2019 Life Expectancy": 71.9443902439,
+    "2020 Life Expectancy": 71.8507317073,
+    "2019 GDP (Billion $)": 2.9973099719,
+    "2020 GDP (Billion $)": 3.0828846532,
+    "lat": 72.0,
+    "long": -40.0
+  },
+  {
+    "Country": "Guatemala",
+    "Country Code": "GTM",
+    "2019 Life Expectancy": 73.129,
+    "2020 Life Expectancy": 71.797,
+    "2019 GDP (Billion $)": 77.1723172586,
+    "2020 GDP (Billion $)": 77.7151830632,
+    "lat": 15.5,
+    "long": -90.25
+  },
+  {
+    "Country": "Guam",
+    "Country Code": "GUM",
+    "2019 Life Expectancy": 77.717,
+    "2020 Life Expectancy": 76.612,
+    "2019 GDP (Billion $)": 6.355,
+    "2020 GDP (Billion $)": 5.916,
+    "lat": 13.4667,
+    "long": 144.7833
+  },
+  {
+    "Country": "Guyana",
+    "Country Code": "GUY",
+    "2019 Life Expectancy": 69.124,
+    "2020 Life Expectancy": 68.486,
+    "2019 GDP (Billion $)": 5.1737601918,
+    "2020 GDP (Billion $)": 5.4712565947,
+    "lat": 5.0,
+    "long": -59.0
+  },
+  {
+    "Country": "Honduras",
+    "Country Code": "HND",
+    "2019 Life Expectancy": 72.881,
+    "2020 Life Expectancy": 71.462,
+    "2019 GDP (Billion $)": 24.8822257418,
+    "2020 GDP (Billion $)": 23.3522324838,
+    "lat": 15.0,
+    "long": -86.5
+  },
+  {
+    "Country": "Croatia",
+    "Country Code": "HRV",
+    "2019 Life Expectancy": 78.4243902439,
+    "2020 Life Expectancy": 77.7243902439,
+    "2019 GDP (Billion $)": 61.8671576793,
+    "2020 GDP (Billion $)": 58.2213008979,
+    "lat": 45.1667,
+    "long": 15.5
+  },
+  {
+    "Country": "Haiti",
+    "Country Code": "HTI",
+    "2019 Life Expectancy": 64.255,
+    "2020 Life Expectancy": 64.052,
+    "2019 GDP (Billion $)": 15.0160909295,
+    "2020 GDP (Billion $)": 14.5082225183,
+    "lat": 19.0,
+    "long": -72.4167
+  },
+  {
+    "Country": "Hungary",
+    "Country Code": "HUN",
+    "2019 Life Expectancy": 76.3195121951,
+    "2020 Life Expectancy": 75.5682926829,
+    "2019 GDP (Billion $)": 164.0204603317,
+    "2020 GDP (Billion $)": 157.2889555082,
+    "lat": 47.0,
+    "long": 20.0
+  },
+  {
+    "Country": "Indonesia",
+    "Country Code": "IDN",
+    "2019 Life Expectancy": 70.518,
+    "2020 Life Expectancy": 68.808,
+    "2019 GDP (Billion $)": 1119.0998713502,
+    "2020 GDP (Billion $)": 1059.0548426985,
+    "lat": -5.0,
+    "long": 120.0
+  },
+  {
+    "Country": "Isle of Man",
+    "Country Code": "IMN",
+    "2019 Life Expectancy": 80.737,
+    "2020 Life Expectancy": 80.588,
+    "2019 GDP (Billion $)": 7.3149678663,
+    "2020 GDP (Billion $)": 6.684225641,
+    "lat": 54.23,
+    "long": -4.55
+  },
+  {
+    "Country": "India",
+    "Country Code": "IND",
+    "2019 Life Expectancy": 70.91,
+    "2020 Life Expectancy": 70.15,
+    "2019 GDP (Billion $)": 2835.6062565588,
+    "2020 GDP (Billion $)": 2674.8515785869,
+    "lat": 20.0,
+    "long": 77.0
+  },
+  {
+    "Country": "Ireland",
+    "Country Code": "IRL",
+    "2019 Life Expectancy": 82.7024390244,
+    "2020 Life Expectancy": 82.556097561,
+    "2019 GDP (Billion $)": 398.9330100074,
+    "2020 GDP (Billion $)": 428.6086878302,
+    "lat": 53.0,
+    "long": -8.0
+  },
+  {
+    "Country": "Iraq",
+    "Country Code": "IRQ",
+    "2019 Life Expectancy": 71.576,
+    "2020 Life Expectancy": 69.123,
+    "2019 GDP (Billion $)": 233.6360978003,
+    "2020 GDP (Billion $)": 180.8987979363,
+    "lat": 33.0,
+    "long": 44.0
+  },
+  {
+    "Country": "Iceland",
+    "Country Code": "ISL",
+    "2019 Life Expectancy": 83.1634146341,
+    "2020 Life Expectancy": 83.0634146341,
+    "2019 GDP (Billion $)": 24.6813436493,
+    "2020 GDP (Billion $)": 21.6299531941,
+    "lat": 65.0,
+    "long": -18.0
+  },
+  {
+    "Country": "Israel",
+    "Country Code": "ISR",
+    "2019 Life Expectancy": 82.8048780488,
+    "2020 Life Expectancy": 82.6487804878,
+    "2019 GDP (Billion $)": 402.4705136191,
+    "2020 GDP (Billion $)": 413.2676692315,
+    "lat": 31.5,
+    "long": 34.75
+  },
+  {
+    "Country": "Italy",
+    "Country Code": "ITA",
+    "2019 Life Expectancy": 83.4975609756,
+    "2020 Life Expectancy": 82.1951219512,
+    "2019 GDP (Billion $)": 2011.3021988274,
+    "2020 GDP (Billion $)": 1897.4616355919,
+    "lat": 42.8333,
+    "long": 12.8333
+  },
+  {
+    "Country": "Jamaica",
+    "Country Code": "JAM",
+    "2019 Life Expectancy": 71.767,
+    "2020 Life Expectancy": 71.869,
+    "2019 GDP (Billion $)": 15.8307665311,
+    "2020 GDP (Billion $)": 13.8124218357,
+    "lat": 18.25,
+    "long": -77.5
+  },
+  {
+    "Country": "Jordan",
+    "Country Code": "JOR",
+    "2019 Life Expectancy": 76.044,
+    "2020 Life Expectancy": 75.184,
+    "2019 GDP (Billion $)": 44.5028169014,
+    "2020 GDP (Billion $)": 43.7003830986,
+    "lat": 31.0,
+    "long": 36.0
+  },
+  {
+    "Country": "Japan",
+    "Country Code": "JPN",
+    "2019 Life Expectancy": 84.3563414634,
+    "2020 Life Expectancy": 84.56,
+    "2019 GDP (Billion $)": 5117.9938530165,
+    "2020 GDP (Billion $)": 5055.5870935016,
+    "lat": 36.0,
+    "long": 138.0
+  },
+  {
+    "Country": "Kazakhstan",
+    "Country Code": "KAZ",
+    "2019 Life Expectancy": 73.18,
+    "2020 Life Expectancy": 71.37,
+    "2019 GDP (Billion $)": 181.6671848545,
+    "2020 GDP (Billion $)": 171.0823658614,
+    "lat": 48.0,
+    "long": 68.0
+  },
+  {
+    "Country": "Kenya",
+    "Country Code": "KEN",
+    "2019 Life Expectancy": 62.943,
+    "2020 Life Expectancy": 62.675,
+    "2019 GDP (Billion $)": 100.3784362074,
+    "2020 GDP (Billion $)": 100.6575057505,
+    "lat": 1.0,
+    "long": 38.0
+  },
+  {
+    "Country": "Cambodia",
+    "Country Code": "KHM",
+    "2019 Life Expectancy": 70.692,
+    "2020 Life Expectancy": 70.416,
+    "2019 GDP (Billion $)": 27.0893900328,
+    "2020 GDP (Billion $)": 25.8727978918,
+    "lat": 13.0,
+    "long": 105.0
+  },
+  {
+    "Country": "Kiribati",
+    "Country Code": "KIR",
+    "2019 Life Expectancy": 67.15,
+    "2020 Life Expectancy": 67.266,
+    "2019 GDP (Billion $)": 0.216891541,
+    "2020 GDP (Billion $)": 0.2229738797,
+    "lat": 1.4167,
+    "long": 173.0
+  },
+  {
+    "Country": "Kuwait",
+    "Country Code": "KWT",
+    "2019 Life Expectancy": 79.685,
+    "2020 Life Expectancy": 76.92,
+    "2019 GDP (Billion $)": 138.6963210879,
+    "2020 GDP (Billion $)": 107.512998447,
+    "lat": 29.3375,
+    "long": 47.6581
+  },
+  {
+    "Country": "Lebanon",
+    "Country Code": "LBN",
+    "2019 Life Expectancy": 79.236,
+    "2020 Life Expectancy": 77.804,
+    "2019 GDP (Billion $)": 51.6059591313,
+    "2020 GDP (Billion $)": 31.7121282538,
+    "lat": 33.8333,
+    "long": 35.8333
+  },
+  {
+    "Country": "Liberia",
+    "Country Code": "LBR",
+    "2019 Life Expectancy": 61.104,
+    "2020 Life Expectancy": 60.948,
+    "2019 GDP (Billion $)": 3.3195965,
+    "2020 GDP (Billion $)": 3.17612634,
+    "lat": 6.5,
+    "long": -9.5
+  },
+  {
+    "Country": "Liechtenstein",
+    "Country Code": "LIE",
+    "2019 Life Expectancy": 84.1609756098,
+    "2020 Life Expectancy": 81.6585365854,
+    "2019 GDP (Billion $)": 6.4364670071,
+    "2020 GDP (Billion $)": 6.4058702103,
+    "lat": 47.1667,
+    "long": 9.5333
+  },
+  {
+    "Country": "Sri Lanka",
+    "Country Code": "LKA",
+    "2019 Life Expectancy": 76.008,
+    "2020 Life Expectancy": 76.393,
+    "2019 GDP (Billion $)": 89.0149783441,
+    "2020 GDP (Billion $)": 84.3042987705,
+    "lat": 7.0,
+    "long": 81.0
+  },
+  {
+    "Country": "Lesotho",
+    "Country Code": "LSO",
+    "2019 Life Expectancy": 54.173,
+    "2020 Life Expectancy": 54.693,
+    "2019 GDP (Billion $)": 2.3907022958,
+    "2020 GDP (Billion $)": 2.0533384652,
+    "lat": -29.5,
+    "long": 28.5
+  },
+  {
+    "Country": "Lithuania",
+    "Country Code": "LTU",
+    "2019 Life Expectancy": 76.2829268293,
+    "2020 Life Expectancy": 74.9780487805,
+    "2019 GDP (Billion $)": 54.8085316414,
+    "2020 GDP (Billion $)": 56.9649429994,
+    "lat": 56.0,
+    "long": 24.0
+  },
+  {
+    "Country": "Luxembourg",
+    "Country Code": "LUX",
+    "2019 Life Expectancy": 82.6390243902,
+    "2020 Life Expectancy": 82.143902439,
+    "2019 GDP (Billion $)": 69.8905053236,
+    "2020 GDP (Billion $)": 73.6993667002,
+    "lat": 49.75,
+    "long": 6.1667
+  },
+  {
+    "Country": "Latvia",
+    "Country Code": "LVA",
+    "2019 Life Expectancy": 75.387804878,
+    "2020 Life Expectancy": 75.1853658537,
+    "2019 GDP (Billion $)": 34.2255475371,
+    "2020 GDP (Billion $)": 34.390910339,
+    "lat": 57.0,
+    "long": 25.0
+  },
+  {
+    "Country": "Morocco",
+    "Country Code": "MAR",
+    "2019 Life Expectancy": 74.27,
+    "2020 Life Expectancy": 73.92,
+    "2019 GDP (Billion $)": 128.9202664095,
+    "2020 GDP (Billion $)": 121.3536450571,
+    "lat": 32.0,
+    "long": -5.0
+  },
+  {
+    "Country": "Madagascar",
+    "Country Code": "MDG",
+    "2019 Life Expectancy": 65.882,
+    "2020 Life Expectancy": 65.182,
+    "2019 GDP (Billion $)": 14.1046646785,
+    "2020 GDP (Billion $)": 13.0514412039,
+    "lat": -20.0,
+    "long": 47.0
+  },
+  {
+    "Country": "Maldives",
+    "Country Code": "MDV",
+    "2019 Life Expectancy": 80.116,
+    "2020 Life Expectancy": 79.875,
+    "2019 GDP (Billion $)": 5.7260947994,
+    "2020 GDP (Billion $)": 3.7126045834,
+    "lat": 3.25,
+    "long": 73.0
+  },
+  {
+    "Country": "Mexico",
+    "Country Code": "MEX",
+    "2019 Life Expectancy": 74.202,
+    "2020 Life Expectancy": 70.133,
+    "2019 GDP (Billion $)": 1305.2111358226,
+    "2020 GDP (Billion $)": 1120.8324124689,
+    "lat": 23.0,
+    "long": -102.0
+  },
+  {
+    "Country": "Marshall Islands",
+    "Country Code": "MHL",
+    "2019 Life Expectancy": 64.746,
+    "2020 Life Expectancy": 64.977,
+    "2019 GDP (Billion $)": 0.2319967041,
+    "2020 GDP (Billion $)": 0.2407511444,
+    "lat": 9.0,
+    "long": 168.0
+  },
+  {
+    "Country": "Mali",
+    "Country Code": "MLI",
+    "2019 Life Expectancy": 59.664,
+    "2020 Life Expectancy": 58.633,
+    "2019 GDP (Billion $)": 17.28025081,
+    "2020 GDP (Billion $)": 17.4653927644,
+    "lat": 17.0,
+    "long": -4.0
+  },
+  {
+    "Country": "Malta",
+    "Country Code": "MLT",
+    "2019 Life Expectancy": 82.8585365854,
+    "2020 Life Expectancy": 82.3487804878,
+    "2019 GDP (Billion $)": 16.0045638858,
+    "2020 GDP (Billion $)": 15.249999048,
+    "lat": 35.8333,
+    "long": 14.5833
+  },
+  {
+    "Country": "Myanmar",
+    "Country Code": "MMR",
+    "2019 Life Expectancy": 66.61,
+    "2020 Life Expectancy": 66.797,
+    "2019 GDP (Billion $)": 75.0651062277,
+    "2020 GDP (Billion $)": 79.0061136432,
+    "lat": 22.0,
+    "long": 98.0
+  },
+  {
+    "Country": "Montenegro",
+    "Country Code": "MNE",
+    "2019 Life Expectancy": 76.6829268293,
+    "2020 Life Expectancy": 75.9317073171,
+    "2019 GDP (Billion $)": 5.5420541811,
+    "2020 GDP (Billion $)": 4.769996866,
+    "lat": 42.0,
+    "long": 19.0
+  },
+  {
+    "Country": "Mongolia",
+    "Country Code": "MNG",
+    "2019 Life Expectancy": 71.822,
+    "2020 Life Expectancy": 72.141,
+    "2019 GDP (Billion $)": 14.2063590175,
+    "2020 GDP (Billion $)": 13.3129814291,
+    "lat": 46.0,
+    "long": 105.0
+  },
+  {
+    "Country": "Mozambique",
+    "Country Code": "MOZ",
+    "2019 Life Expectancy": 61.166,
+    "2020 Life Expectancy": 61.172,
+    "2019 GDP (Billion $)": 15.5127589646,
+    "2020 GDP (Billion $)": 14.2354201742,
+    "lat": -18.25,
+    "long": 35.0
+  },
+  {
+    "Country": "Mauritania",
+    "Country Code": "MRT",
+    "2019 Life Expectancy": 65.687,
+    "2020 Life Expectancy": 64.532,
+    "2019 GDP (Billion $)": 7.8947648858,
+    "2020 GDP (Billion $)": 8.2607523852,
+    "lat": 20.0,
+    "long": -12.0
+  },
+  {
+    "Country": "Mauritius",
+    "Country Code": "MUS",
+    "2019 Life Expectancy": 74.2358536585,
+    "2020 Life Expectancy": 74.1770731707,
+    "2019 GDP (Billion $)": 14.4363469796,
+    "2020 GDP (Billion $)": 11.4081064463,
+    "lat": -20.2833,
+    "long": 57.55
+  },
+  {
+    "Country": "Malawi",
+    "Country Code": "MWI",
+    "2019 Life Expectancy": 64.119,
+    "2020 Life Expectancy": 63.717,
+    "2019 GDP (Billion $)": 11.0773053296,
+    "2020 GDP (Billion $)": 12.0412500839,
+    "lat": -13.5,
+    "long": 34.0
+  },
+  {
+    "Country": "Malaysia",
+    "Country Code": "MYS",
+    "2019 Life Expectancy": 75.76,
+    "2020 Life Expectancy": 75.938,
+    "2019 GDP (Billion $)": 365.1777210215,
+    "2020 GDP (Billion $)": 337.4561639612,
+    "lat": 2.5,
+    "long": 112.5
+  },
+  {
+    "Country": "Namibia",
+    "Country Code": "NAM",
+    "2019 Life Expectancy": 63.075,
+    "2020 Life Expectancy": 62.829,
+    "2019 GDP (Billion $)": 12.5419281028,
+    "2020 GDP (Billion $)": 10.5837485415,
+    "lat": -22.0,
+    "long": 17.0
+  },
+  {
+    "Country": "New Caledonia",
+    "Country Code": "NCL",
+    "2019 Life Expectancy": 80.4197073171,
+    "2020 Life Expectancy": 80.8349512195,
+    "2019 GDP (Billion $)": 9.4756553246,
+    "2020 GDP (Billion $)": 9.4546294679,
+    "lat": -21.5,
+    "long": 165.5
+  },
+  {
+    "Country": "Niger",
+    "Country Code": "NER",
+    "2019 Life Expectancy": 62.897,
+    "2020 Life Expectancy": 61.451,
+    "2019 GDP (Billion $)": 12.8895555612,
+    "2020 GDP (Billion $)": 13.7446531031,
+    "lat": 16.0,
+    "long": 8.0
+  },
+  {
+    "Country": "Nigeria",
+    "Country Code": "NGA",
+    "2019 Life Expectancy": 52.91,
+    "2020 Life Expectancy": 52.887,
+    "2019 GDP (Billion $)": 474.5174908445,
+    "2020 GDP (Billion $)": 432.1988984678,
+    "lat": 10.0,
+    "long": 8.0
+  },
+  {
+    "Country": "Nicaragua",
+    "Country Code": "NIC",
+    "2019 Life Expectancy": 74.054,
+    "2020 Life Expectancy": 71.795,
+    "2019 GDP (Billion $)": 12.6990462446,
+    "2020 GDP (Billion $)": 12.6815483037,
+    "lat": 13.0,
+    "long": -85.0
+  },
+  {
+    "Country": "Netherlands",
+    "Country Code": "NLD",
+    "2019 Life Expectancy": 82.112195122,
+    "2020 Life Expectancy": 81.3585365854,
+    "2019 GDP (Billion $)": 910.1943475686,
+    "2020 GDP (Billion $)": 909.7934666615,
+    "lat": 52.5,
+    "long": 5.75
+  },
+  {
+    "Country": "Norway",
+    "Country Code": "NOR",
+    "2019 Life Expectancy": 82.9585365854,
+    "2020 Life Expectancy": 83.2097560976,
+    "2019 GDP (Billion $)": 408.7428409091,
+    "2020 GDP (Billion $)": 367.6334188866,
+    "lat": 62.0,
+    "long": 10.0
+  },
+  {
+    "Country": "Nepal",
+    "Country Code": "NPL",
+    "2019 Life Expectancy": 69.558,
+    "2020 Life Expectancy": 69.246,
+    "2019 GDP (Billion $)": 34.186180699,
+    "2020 GDP (Billion $)": 33.4336593012,
+    "lat": 28.0,
+    "long": 84.0
+  },
+  {
+    "Country": "Nauru",
+    "Country Code": "NRU",
+    "2019 Life Expectancy": 63.484,
+    "2020 Life Expectancy": 63.437,
+    "2019 GDP (Billion $)": 0.1251601155,
+    "2020 GDP (Billion $)": 0.1246856882,
+    "lat": -0.5333,
+    "long": 166.9167
+  },
+  {
+    "Country": "New Zealand",
+    "Country Code": "NZL",
+    "2019 Life Expectancy": 82.056097561,
+    "2020 Life Expectancy": 82.256097561,
+    "2019 GDP (Billion $)": 212.8469076834,
+    "2020 GDP (Billion $)": 212.6975308976,
+    "lat": -41.0,
+    "long": 174.0
+  },
+  {
+    "Country": "Oman",
+    "Country Code": "OMN",
+    "2019 Life Expectancy": 78.002,
+    "2020 Life Expectancy": 74.757,
+    "2019 GDP (Billion $)": 88.0608582575,
+    "2020 GDP (Billion $)": 75.9093976593,
+    "lat": 21.0,
+    "long": 57.0
+  },
+  {
+    "Country": "Pakistan",
+    "Country Code": "PAK",
+    "2019 Life Expectancy": 66.756,
+    "2020 Life Expectancy": 66.269,
+    "2019 GDP (Billion $)": 320.9094727707,
+    "2020 GDP (Billion $)": 300.425609818,
+    "lat": 30.0,
+    "long": 70.0
+  },
+  {
+    "Country": "Panama",
+    "Country Code": "PAN",
+    "2019 Life Expectancy": 77.81,
+    "2020 Life Expectancy": 76.657,
+    "2019 GDP (Billion $)": 69.7217875,
+    "2020 GDP (Billion $)": 57.0868369,
+    "lat": 9.0,
+    "long": -80.0
+  },
+  {
+    "Country": "Peru",
+    "Country Code": "PER",
+    "2019 Life Expectancy": 76.156,
+    "2020 Life Expectancy": 73.665,
+    "2019 GDP (Billion $)": 228.3460060036,
+    "2020 GDP (Billion $)": 201.4096947559,
+    "lat": -10.0,
+    "long": -76.0
+  },
+  {
+    "Country": "Philippines",
+    "Country Code": "PHL",
+    "2019 Life Expectancy": 71.865,
+    "2020 Life Expectancy": 72.119,
+    "2019 GDP (Billion $)": 376.8234022449,
+    "2020 GDP (Billion $)": 361.7511454516,
+    "lat": 13.0,
+    "long": 122.0
+  },
+  {
+    "Country": "Papua New Guinea",
+    "Country Code": "PNG",
+    "2019 Life Expectancy": 65.474,
+    "2020 Life Expectancy": 65.787,
+    "2019 GDP (Billion $)": 24.7510669105,
+    "2020 GDP (Billion $)": 23.8484451039,
+    "lat": -6.0,
+    "long": 147.0
+  },
+  {
+    "Country": "Poland",
+    "Country Code": "POL",
+    "2019 Life Expectancy": 77.9048780488,
+    "2020 Life Expectancy": 76.5,
+    "2019 GDP (Billion $)": 596.0584730588,
+    "2020 GDP (Billion $)": 599.4427323654,
+    "lat": 52.0,
+    "long": 20.0
+  },
+  {
+    "Country": "Puerto Rico",
+    "Country Code": "PRI",
+    "2019 Life Expectancy": 79.063,
+    "2020 Life Expectancy": 78.041,
+    "2019 GDP (Billion $)": 105.1264,
+    "2020 GDP (Billion $)": 103.1309,
+    "lat": 18.25,
+    "long": -66.5
+  },
+  {
+    "Country": "Portugal",
+    "Country Code": "PRT",
+    "2019 Life Expectancy": 81.6756097561,
+    "2020 Life Expectancy": 80.9756097561,
+    "2019 GDP (Billion $)": 239.9869226389,
+    "2020 GDP (Billion $)": 229.0318605208,
+    "lat": 39.5,
+    "long": -8.0
+  },
+  {
+    "Country": "Paraguay",
+    "Country Code": "PRY",
+    "2019 Life Expectancy": 73.621,
+    "2020 Life Expectancy": 73.182,
+    "2019 GDP (Billion $)": 37.9253383291,
+    "2020 GDP (Billion $)": 35.4321780682,
+    "lat": -23.0,
+    "long": -58.0
+  },
+  {
+    "Country": "French Polynesia",
+    "Country Code": "PYF",
+    "2019 Life Expectancy": 82.996,
+    "2020 Life Expectancy": 82.217,
+    "2019 GDP (Billion $)": 6.0222761961,
+    "2020 GDP (Billion $)": 5.7925458708,
+    "lat": -15.0,
+    "long": -140.0
+  },
+  {
+    "Country": "Qatar",
+    "Country Code": "QAT",
+    "2019 Life Expectancy": 80.99,
+    "2020 Life Expectancy": 79.099,
+    "2019 GDP (Billion $)": 176.3712676923,
+    "2020 GDP (Billion $)": 144.4113633516,
+    "lat": 25.5,
+    "long": 51.25
+  },
+  {
+    "Country": "Romania",
+    "Country Code": "ROU",
+    "2019 Life Expectancy": 75.6073170732,
+    "2020 Life Expectancy": 74.2536585366,
+    "2019 GDP (Billion $)": 251.017797625,
+    "2020 GDP (Billion $)": 251.3625143497,
+    "lat": 46.0,
+    "long": 25.0
+  },
+  {
+    "Country": "Russian Federation",
+    "Country Code": "RUS",
+    "2019 Life Expectancy": 73.083902439,
+    "2020 Life Expectancy": 71.3387804878,
+    "2019 GDP (Billion $)": 1693.1150027083,
+    "2020 GDP (Billion $)": 1493.0758943621,
+    "lat": 60.0,
+    "long": 100.0
+  },
+  {
+    "Country": "Rwanda",
+    "Country Code": "RWA",
+    "2019 Life Expectancy": 66.437,
+    "2020 Life Expectancy": 66.774,
+    "2019 GDP (Billion $)": 10.3492998558,
+    "2020 GDP (Billion $)": 10.1743876143,
+    "lat": -2.0,
+    "long": 30.0
+  },
+  {
+    "Country": "Saudi Arabia",
+    "Country Code": "SAU",
+    "2019 Life Expectancy": 77.304,
+    "2020 Life Expectancy": 76.239,
+    "2019 GDP (Billion $)": 838.5648,
+    "2020 GDP (Billion $)": 734.2712,
+    "lat": 25.0,
+    "long": 45.0
+  },
+  {
+    "Country": "Sudan",
+    "Country Code": "SDN",
+    "2019 Life Expectancy": 65.876,
+    "2020 Life Expectancy": 65.614,
+    "2019 GDP (Billion $)": 32.3380791653,
+    "2020 GDP (Billion $)": 27.03459375,
+    "lat": 15.0,
+    "long": 30.0
+  },
+  {
+    "Country": "Senegal",
+    "Country Code": "SEN",
+    "2019 Life Expectancy": 68.526,
+    "2020 Life Expectancy": 68.006,
+    "2019 GDP (Billion $)": 23.4039959921,
+    "2020 GDP (Billion $)": 24.5305130378,
+    "lat": 14.0,
+    "long": -14.0
+  },
+  {
+    "Country": "Singapore",
+    "Country Code": "SGP",
+    "2019 Life Expectancy": 83.5951219512,
+    "2020 Life Expectancy": 83.543902439,
+    "2019 GDP (Billion $)": 376.9016492225,
+    "2020 GDP (Billion $)": 349.4883826107,
+    "lat": 1.3667,
+    "long": 103.8
+  },
+  {
+    "Country": "Solomon Islands",
+    "Country Code": "SLB",
+    "2019 Life Expectancy": 70.382,
+    "2020 Life Expectancy": 70.199,
+    "2019 GDP (Billion $)": 1.6191550174,
+    "2020 GDP (Billion $)": 1.5361458142,
+    "lat": -8.0,
+    "long": 159.0
+  },
+  {
+    "Country": "Sierra Leone",
+    "Country Code": "SLE",
+    "2019 Life Expectancy": 60.255,
+    "2020 Life Expectancy": 59.763,
+    "2019 GDP (Billion $)": 4.0765786988,
+    "2020 GDP (Billion $)": 4.0629062657,
+    "lat": 8.5,
+    "long": -11.5
+  },
+  {
+    "Country": "El Salvador",
+    "Country Code": "SLV",
+    "2019 Life Expectancy": 72.559,
+    "2020 Life Expectancy": 71.061,
+    "2019 GDP (Billion $)": 26.88114,
+    "2020 GDP (Billion $)": 24.92119,
+    "lat": 13.8333,
+    "long": -88.9167
+  },
+  {
+    "Country": "Somalia",
+    "Country Code": "SOM",
+    "2019 Life Expectancy": 57.078,
+    "2020 Life Expectancy": 55.967,
+    "2019 GDP (Billion $)": 9.4204312582,
+    "2020 GDP (Billion $)": 9.2041403832,
+    "lat": 10.0,
+    "long": 49.0
+  },
+  {
+    "Country": "Serbia",
+    "Country Code": "SRB",
+    "2019 Life Expectancy": 75.9365853659,
+    "2020 Life Expectancy": 74.4780487805,
+    "2019 GDP (Billion $)": 51.5142429387,
+    "2020 GDP (Billion $)": 53.3564845914,
+    "lat": 44.0,
+    "long": 21.0
+  },
+  {
+    "Country": "Sao Tome and Principe",
+    "Country Code": "STP",
+    "2019 Life Expectancy": 68.523,
+    "2020 Life Expectancy": 67.785,
+    "2019 GDP (Billion $)": 0.4129760645,
+    "2020 GDP (Billion $)": 0.4712294846,
+    "lat": 1.0,
+    "long": 7.0
+  },
+  {
+    "Country": "Suriname",
+    "Country Code": "SUR",
+    "2019 Life Expectancy": 72.242,
+    "2020 Life Expectancy": 72.561,
+    "2019 GDP (Billion $)": 4.0160405751,
+    "2020 GDP (Billion $)": 2.9118074962,
+    "lat": 4.0,
+    "long": -56.0
+  },
+  {
+    "Country": "Slovenia",
+    "Country Code": "SVN",
+    "2019 Life Expectancy": 81.5292682927,
+    "2020 Life Expectancy": 80.5317073171,
+    "2019 GDP (Billion $)": 54.386654314,
+    "2020 GDP (Billion $)": 53.7345268542,
+    "lat": 46.0,
+    "long": 15.0
+  },
+  {
+    "Country": "Sweden",
+    "Country Code": "SWE",
+    "2019 Life Expectancy": 83.1097560976,
+    "2020 Life Expectancy": 82.356097561,
+    "2019 GDP (Billion $)": 533.8795291885,
+    "2020 GDP (Billion $)": 547.0541742359,
+    "lat": 62.0,
+    "long": 15.0
+  },
+  {
+    "Country": "Seychelles",
+    "Country Code": "SYC",
+    "2019 Life Expectancy": 74.0463414634,
+    "2020 Life Expectancy": 77.2365853659,
+    "2019 GDP (Billion $)": 1.8686900967,
+    "2020 GDP (Billion $)": 1.3825517516,
+    "lat": -4.5833,
+    "long": 55.6667
+  },
+  {
+    "Country": "Syrian Arab Republic",
+    "Country Code": "SYR",
+    "2019 Life Expectancy": 71.822,
+    "2020 Life Expectancy": 72.14,
+    "2019 GDP (Billion $)": 22.5830450526,
+    "2020 GDP (Billion $)": 11.155888304,
+    "lat": 35.0,
+    "long": 38.0
+  },
+  {
+    "Country": "Turks and Caicos Islands",
+    "Country Code": "TCA",
+    "2019 Life Expectancy": 75.326,
+    "2020 Life Expectancy": 75.001,
+    "2019 GDP (Billion $)": 1.1772852117,
+    "2020 GDP (Billion $)": 0.7746536693,
+    "lat": 21.75,
+    "long": -71.5833
+  },
+  {
+    "Country": "Chad",
+    "Country Code": "TCD",
+    "2019 Life Expectancy": 53.259,
+    "2020 Life Expectancy": 52.777,
+    "2019 GDP (Billion $)": 11.3149510917,
+    "2020 GDP (Billion $)": 10.7153960423,
+    "lat": 15.0,
+    "long": 19.0
+  },
+  {
+    "Country": "Togo",
+    "Country Code": "TGO",
+    "2019 Life Expectancy": 60.901,
+    "2020 Life Expectancy": 61.035,
+    "2019 GDP (Billion $)": 6.9927001014,
+    "2020 GDP (Billion $)": 7.4002841678,
+    "lat": 8.0,
+    "long": 1.1667
+  },
+  {
+    "Country": "Thailand",
+    "Country Code": "THA",
+    "2019 Life Expectancy": 78.975,
+    "2020 Life Expectancy": 79.274,
+    "2019 GDP (Billion $)": 543.9766917939,
+    "2020 GDP (Billion $)": 500.4618984802,
+    "lat": 15.0,
+    "long": 100.0
+  },
+  {
+    "Country": "Tajikistan",
+    "Country Code": "TJK",
+    "2019 Life Expectancy": 70.867,
+    "2020 Life Expectancy": 67.994,
+    "2019 GDP (Billion $)": 8.3008135993,
+    "2020 GDP (Billion $)": 8.1339635507,
+    "lat": 39.0,
+    "long": 71.0
+  },
+  {
+    "Country": "Turkmenistan",
+    "Country Code": "TKM",
+    "2019 Life Expectancy": 69.002,
+    "2020 Life Expectancy": 68.687,
+    "2019 GDP (Billion $)": 45.2328571429,
+    "2020 GDP (Billion $)": 45.818,
+    "lat": 40.0,
+    "long": 60.0
+  },
+  {
+    "Country": "Timor-Leste",
+    "Country Code": "TLS",
+    "2019 Life Expectancy": 68.268,
+    "2020 Life Expectancy": 68.475,
+    "2019 GDP (Billion $)": 2.027034,
+    "2020 GDP (Billion $)": 2.1626192,
+    "lat": -8.55,
+    "long": 125.5167
+  },
+  {
+    "Country": "Tonga",
+    "Country Code": "TON",
+    "2019 Life Expectancy": 70.871,
+    "2020 Life Expectancy": 70.928,
+    "2019 GDP (Billion $)": 0.5120536921,
+    "2020 GDP (Billion $)": 0.4847968549,
+    "lat": -20.0,
+    "long": -175.0
+  },
+  {
+    "Country": "Trinidad and Tobago",
+    "Country Code": "TTO",
+    "2019 Life Expectancy": 74.228,
+    "2020 Life Expectancy": 74.406,
+    "2019 GDP (Billion $)": 23.7757543047,
+    "2020 GDP (Billion $)": 20.8075713143,
+    "lat": 11.0,
+    "long": -61.0
+  },
+  {
+    "Country": "Tunisia",
+    "Country Code": "TUN",
+    "2019 Life Expectancy": 75.993,
+    "2020 Life Expectancy": 75.292,
+    "2019 GDP (Billion $)": 41.9055401844,
+    "2020 GDP (Billion $)": 42.4918164757,
+    "lat": 34.0,
+    "long": 9.0
+  },
+  {
+    "Country": "Tuvalu",
+    "Country Code": "TUV",
+    "2019 Life Expectancy": 64.278,
+    "2020 Life Expectancy": 64.382,
+    "2019 GDP (Billion $)": 0.0541231986,
+    "2020 GDP (Billion $)": 0.0517465943,
+    "lat": -8.0,
+    "long": 178.0
+  },
+  {
+    "Country": "Uganda",
+    "Country Code": "UGA",
+    "2019 Life Expectancy": 62.991,
+    "2020 Life Expectancy": 62.851,
+    "2019 GDP (Billion $)": 35.3481550954,
+    "2020 GDP (Billion $)": 37.6003682399,
+    "lat": 1.0,
+    "long": 32.0
+  },
+  {
+    "Country": "Ukraine",
+    "Country Code": "UKR",
+    "2019 Life Expectancy": 71.8273170732,
+    "2020 Life Expectancy": 71.1851219512,
+    "2019 GDP (Billion $)": 153.8830475096,
+    "2020 GDP (Billion $)": 156.6177220133,
+    "lat": 49.0,
+    "long": 32.0
+  },
+  {
+    "Country": "Uruguay",
+    "Country Code": "URY",
+    "2019 Life Expectancy": 77.508,
+    "2020 Life Expectancy": 78.43,
+    "2019 GDP (Billion $)": 62.222387929,
+    "2020 GDP (Billion $)": 53.6686365679,
+    "lat": -33.0,
+    "long": -56.0
+  },
+  {
+    "Country": "United States",
+    "Country Code": "USA",
+    "2019 Life Expectancy": 78.787804878,
+    "2020 Life Expectancy": 76.9804878049,
+    "2019 GDP (Billion $)": 21521.395,
+    "2020 GDP (Billion $)": 21322.95,
+    "lat": 38.0,
+    "long": -97.0
+  },
+  {
+    "Country": "Uzbekistan",
+    "Country Code": "UZB",
+    "2019 Life Expectancy": 71.344,
+    "2020 Life Expectancy": 70.331,
+    "2019 GDP (Billion $)": 60.2835037054,
+    "2020 GDP (Billion $)": 60.2247012968,
+    "lat": 41.0,
+    "long": 64.0
+  },
+  {
+    "Country": "Viet Nam",
+    "Country Code": "VNM",
+    "2019 Life Expectancy": 74.093,
+    "2020 Life Expectancy": 75.378,
+    "2019 GDP (Billion $)": 334.3652704967,
+    "2020 GDP (Billion $)": 346.6157385378,
+    "lat": 16.0,
+    "long": 106.0
+  },
+  {
+    "Country": "Vanuatu",
+    "Country Code": "VUT",
+    "2019 Life Expectancy": 69.877,
+    "2020 Life Expectancy": 70.299,
+    "2019 GDP (Billion $)": 0.9365262676,
+    "2020 GDP (Billion $)": 0.9094210435,
+    "lat": -16.0,
+    "long": 167.0
+  },
+  {
+    "Country": "Samoa",
+    "Country Code": "WSM",
+    "2019 Life Expectancy": 72.157,
+    "2020 Life Expectancy": 72.768,
+    "2019 GDP (Billion $)": 0.9129504661,
+    "2020 GDP (Billion $)": 0.8688983583,
+    "lat": -13.5833,
+    "long": -172.3333
+  },
+  {
+    "Country": "South Africa",
+    "Country Code": "ZAF",
+    "2019 Life Expectancy": 66.175,
+    "2020 Life Expectancy": 65.252,
+    "2019 GDP (Billion $)": 389.3300322243,
+    "2020 GDP (Billion $)": 338.2913960267,
+    "lat": -29.0,
+    "long": 24.0
+  },
+  {
+    "Country": "Zambia",
+    "Country Code": "ZMB",
+    "2019 Life Expectancy": 62.793,
+    "2020 Life Expectancy": 62.38,
+    "2019 GDP (Billion $)": 23.3086677812,
+    "2020 GDP (Billion $)": 18.1377649313,
+    "lat": -15.0,
+    "long": 30.0
+  },
+  {
+    "Country": "Zimbabwe",
+    "Country Code": "ZWE",
+    "2019 Life Expectancy": 61.292,
+    "2020 Life Expectancy": 61.124,
+    "2019 GDP (Billion $)": 21.8322349255,
+    "2020 GDP (Billion $)": 21.5096984061,
+    "lat": -20.0,
+    "long": 30.0
+  }
+]

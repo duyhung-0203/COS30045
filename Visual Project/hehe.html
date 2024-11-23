@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Healthcare Expenditure</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Global Health Insights</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="map.html">GDP Overview</a></li>
+            <li class="nav-item"><a class="nav-link" href="pie.html">National Health Spending</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#capital-spending">Capital Health Spending</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#insights">Insights</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <h1>Health Expenditure per capita in 2019</h1>
+  <section id="story-section" class="story-section1">
+    <div class="row align-items-center">
+      <div class="col-md-6 story-text">
+        <h2>Our Story</h2>
+        <p>
+          Health expenditure in capital is a critical lens through which we can assess the economic and social
+          priorities of nations. Building on insights from GDP, life expectancy, and health expenditure across
+          countries, this page focuses on the allocation of health resources per capita. It provides a deeper
+          understanding of how governments, private sectors, and other entities contribute to health outcomes on an
+          individual level.
+        </p>
+        <p>
+          The visualization on this page complements the broader view by offering granular insights into the
+          distribution of compulsory, voluntary, and other health expenditures. By linking expenditure patterns to GDP
+          and life expectancy, we can uncover disparities, identify sustainable strategies, and inform policy decisions
+          aimed at improving global health equity. Whether you're a policymaker, researcher, or global citizen, this
+          exploration offers a vital perspective on how investments in health impact the lives of people worldwide.
+        </p>
+      </div>
+      <div class="col-md-6 story-image text-center">
+        <img src="assets/map.jpg!w700wp" alt="Visualization Illustration" class="img-fluid rounded">
+      </div>
+    </div>
+  </section>
+
+  <div class="chart-container">
+    <div class="legend-container1">
+      <h5>You can click on the color to disappear this chart's color</h5>
+      <br>
+      <div class="toggle-container">
+        <button type="submit" id="toggle-gov"></button>
+        <h3>Government/Compulsory</h3>
+      </div>
+      <br>
+      <br>
+      <div class="toggle-container">
+        <button type="submit" id="toggle-voluntary"></button>
+        <h3>Voluntary/Out-of-pocket</h3>
+      </div>
+      <br>
+      <br>
+      <div class="toggle-container">
+        <button type="submit" id="toggle-other"></button>
+        <h3>Other</h3>
+      </div>
+    </div>
+    <svg id="chart3" width="1500" height="500"></svg>
+    <div>
+      <input type="text" id="country-search" class="country-search" placeholder="Search country...">
+      <div id="country-list" class="country-list"></div>
+    </div>
+  </div>
+  <div id="tooltip2" class="tooltip2"></div>
+  <footer>
+    <div class="footer-content">
+      <h3>Swinburne University of Technology</h3>
+      <p>Address: No 2, Duong Khue, Hanoi, Vietnam</p>
+      <p>Members: Duy Hung, Xuan Sang, Hoang Hai</p>
+      <div class="footer-year">
+        &copy; <span id="year"></span> Swinburne University of Technology
+      </div>
+    </div>
+  </footer>
+  <script>
+    const margin = { top: 20, right: 30, bottom: 150, left: 80 };
+    const width = 1200 - margin.left - margin.right;
+    const height = 600 - margin.top - margin.bottom;
+
+    const svg = d3.select("#chart3")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const tooltip = d3.select("#tooltip2");
+    const categories = ["Government/Compulsory", "Voluntary/Out-of-pocket", "Other"];
+    let visibility = { "Government/Compulsory": true, "Voluntary/Out-of-pocket": true, "Other": true };
+    const defaultBarWidth = 30;
+
+    d3.csv("data/36exif.csv").then(data => {
+      data.forEach(d => {
+        d["Government/Compulsory"] = +d["Government/Compulsory"];
+        d["Voluntary/Out-of-pocket"] = +d["Voluntary/Out-of-pocket"];
+        d["Other"] = d["Other"] ? +d["Other"] : 0;
+        d.Total = +d.Total;
+      });
+
+      const allCountries = data.map(d => d[""]);
+
+      const y = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.Total)])
+        .nice()
+        .range([height, 0]);
+
+      svg.append("g")
+        .call(d3.axisLeft(y));
+
+      const color = d3.scaleOrdinal()
+        .domain(categories)
+        .range(["#1f77b4", "#ff7f0e", "#2ca02c"]);
+
+      function updateChart(selectedCountries) {
+        const rangeWidth = Math.min(selectedCountries.length * defaultBarWidth, width);
+
+        const x = d3.scaleBand()
+          .domain(selectedCountries)
+          .range([0, rangeWidth])
+          .padding(0.1);
+
+        const stack = d3.stack().keys(categories.filter(category => visibility[category]));
+        const filteredData = data.filter(d => selectedCountries.includes(d[""]));
+        const stackedData = stack(filteredData);
+
+        svg.select(".x-axis").remove();
+
+        svg.append("g")
+          .attr("class", "x-axis")
+          .attr("transform", `translate(0,${height})`)
+          .call(d3.axisBottom(x))
+          .selectAll("text")
+          .attr("y", 0)
+          .attr("x", 9)
+          .attr("dy", ".35em")
+          .attr("transform", "rotate(45)")
+          .style("text-anchor", "start");
+
+        const layers = svg.selectAll(".layer")
+          .data(stackedData, d => d.key);
+
+        layers.exit().remove();
+        const layerEnter = layers.enter()
+          .append("g")
+          .attr("class", d => `layer ${d.key.replace(/\W/g, '')}`)
+          .attr("fill", d => color(d.key));
+
+        const mergedLayers = layerEnter.merge(layers);
+
+        const bars = mergedLayers.selectAll("rect")
+          .data(d => d, d => d.data[""]);
+
+        bars.exit()
+          .transition().duration(500)
+          .attr("y", height)
+          .attr("height", 0)
+          .remove();
+
+        bars.enter()
+          .append("rect")
+          .attr("x", d => x(d.data[""]))
+          .attr("y", height)
+          .attr("height", 0)
+          .attr("width", x.bandwidth())
+          .merge(bars)
+          .transition().duration(1000)
+          .attr("x", d => x(d.data[""]))
+          .attr("y", d => y(d[1]))
+          .attr("height", d => y(d[0]) - y(d[1]))
+          .attr("width", x.bandwidth())
+          .selection()
+          .on("mouseover", (event, d) => showTooltip(event, d))
+          .on("mousemove", moveTooltip)
+          .on("mouseout", hideTooltip);
+
+      }
+
+
+      function populateCountryList() {
+        const countryList = document.getElementById("country-list");
+
+        const allContainer = document.createElement("div");
+        const allCheckbox = document.createElement("input");
+        allCheckbox.type = "checkbox";
+        allCheckbox.id = "all-countries";
+        allCheckbox.addEventListener("change", () => selectAllCountries(allCheckbox.checked));
+        const allLabel = document.createElement("label");
+        allLabel.setAttribute("for", "all-countries");
+        allLabel.textContent = "All";
+        allContainer.appendChild(allCheckbox);
+        allContainer.appendChild(allLabel);
+        countryList.appendChild(allContainer);
+
+        data.forEach(d => {
+          const container = document.createElement("div");
+          container.classList.add("country-container");
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.value = d[""];
+          checkbox.classList.add("country-checkbox");
+          checkbox.addEventListener("change", handleCountrySelection);
+
+          const label = document.createElement("label");
+          label.setAttribute("for", d[""]);
+          label.textContent = d[""];
+
+          container.appendChild(checkbox);
+          container.appendChild(label);
+          countryList.appendChild(container);
+        });
+      }
+
+      function selectAllCountries(isChecked) {
+        document.querySelectorAll('.country-checkbox').forEach(checkbox => {
+          checkbox.checked = isChecked;
+        });
+        handleCountrySelection();
+      }
+
+      function handleCountrySelection() {
+        const selectedCountries = Array.from(document.querySelectorAll('#country-list input[type="checkbox"]:checked'))
+          .filter(checkbox => checkbox.id !== "all-countries")
+          .map(checkbox => checkbox.value);
+        updateChart(selectedCountries);
+      }
+
+      document.getElementById("country-search").addEventListener("input", (event) => {
+        const searchTerm = event.target.value.toLowerCase();
+        document.querySelectorAll('#country-list .country-container').forEach(container => {
+          const label = container.querySelector("label");
+          const isMatch = label.textContent.toLowerCase().includes(searchTerm);
+          container.style.display = isMatch ? "block" : "none";
+        });
+      });
+
+      function showTooltip(event, d) {
+        const category = d3.select(event.target.parentNode).datum().key;
+        const segmentValue = d[1] - d[0];
+        const totalValue = d.data["Total"];
+
+        tooltip.transition().duration(200).style("opacity", 1);
+        tooltip.html(`
+    <strong>Country:</strong> ${d.data[""]}<br/>
+    <strong>${category}:</strong> ${segmentValue}<br/>
+    <strong>Total:</strong> ${totalValue}
+  `)
+          .style("left", `${event.pageX + 10}px`)
+          .style("top", `${event.pageY - 28}px`);
+      }
+
+      function moveTooltip(event) {
+        tooltip.style("left", (event.pageX + 10) + "px").style("top", (event.pageY - 28) + "px");
+      }
+
+      function hideTooltip() {
+        tooltip.transition().duration(500).style("opacity", 0);
+      }
+
+      document.getElementById("toggle-gov").addEventListener("click", () => toggleCategory("Government/Compulsory"));
+      document.getElementById("toggle-voluntary").addEventListener("click", () => toggleCategory("Voluntary/Out-of-pocket"));
+      document.getElementById("toggle-other").addEventListener("click", () => toggleCategory("Other"));
+
+      function toggleCategory(category) {
+        visibility[category] = !visibility[category];
+        handleCountrySelection();
+      }
+
+      populateCountryList();
+      selectAllCountries(true);
+    });
+  </script>
+</body>
+
+</html>

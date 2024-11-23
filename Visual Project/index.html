@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Health Insights</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Global Health Insights</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="map.html">GDP Overview</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pie.html">National Health Spending</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="hehe.html">Capital Health Spending</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#insights">Insights</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="intro">
+        <h1>Global Health Insights</h1>
+        <p>Exploring the connections between GDP, national health expenditure, and capital healthcare spending to
+            uncover patterns that shape global well-being.</p>
+        <section id="story" class="story-section">
+            <div class="container d-flex align-items-center">
+                <div class="story-icons col-md-2 text-center">
+                    <img src="assets/heart.png" alt="Heart Icon" class="img-fluid icon">
+                    <img src="assets/stethoscope.png" alt="Stethoscope Icon" class="img-fluid icon mt-4">
+                </div>
+                <div class="story-text col-md-6">
+                    <h2>Our Overarching Story</h2>
+                    <p>
+                        In a rapidly evolving world, economic disparities significantly impact global health outcomes.
+                        Countries with high GDP often allocate less towards healthcare relative to their wealth,
+                        while smaller nations prioritize healthcare investments to enhance citizens' well-being.
+                    </p>
+                    <p>
+                        This website presents a comprehensive analysis of global GDP distribution, national healthcare
+                        expenditures,
+                        and the stark contrasts in healthcare spending between nations and their capitals.
+                        Through visual storytelling, we aim to uncover the hidden patterns that shape global health
+                        trends
+                        and inspire data-driven decisions for a healthier world.
+                    </p>
+                </div>
+                <div class="story-image col-md-4 text-center">
+                    <img src="assets/hehe.webp" alt="Healthcare Illustration" class="img-fluid rounded">
+                </div>
+            </div>
+        </section>
+
+        <a href="#statistics" class="btn btn-primary btn-lg">Explore Now</a>
+    </div>
+    <section id="statistics" class="stats-section">
+        <h2>Key Visuals</h2>
+        <div class="wrapper">
+            <div class="box-area">
+                <div class="box">
+                    <img src="assets/data-viz-map-lying.png" alt="GDP Chart">
+                    <div class="overlay">
+                        <h3>GDP Overview</h3>
+                        <p>Visualizing the global economic distribution.</p>
+                        <a href="map.html">Detail</a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="assets/Line-Graph.png" alt="National Spending">
+                    <div class="overlay">
+                        <h3>Health Spending</h3>
+                        <p>Comparing national expenditures on health.</p>
+                        <a href="pie.html">Detail</a>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="assets/piechart.png" alt="Capital Chart">
+                    <div class="overlay">
+                        <h3>Capital Health</h3>
+                        <p>Insights into capital health investments.</p>
+                        <a href="hehe.html">Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="insights">
+        <h2>Insights</h2>
+        <div class="insights-wrapper">
+            <div class="insight-card">
+                <h3>High GDP, Low Spending</h3>
+                <p>Why do some high-income countries lag in healthcare spending?</p>
+            </div>
+            <div class="insight-card">
+                <h3>Small Nations, Big Investments</h3>
+                <p>Nordic countries lead in healthcare despite moderate GDP.</p>
+            </div>
+            <div class="insight-card">
+                <h3>Capital Dominance</h3>
+                <p>Capitals absorb a major share of national health budgets.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Swinburne University of Technology</h3>
+            <p>Address: No 2, Duong Khue, Hanoi, Vietnam</p>
+            <p>Members: Duy Hung, Xuan Sang, Hoang Hai</p>
+            <div class="footer-year">
+                &copy; <span id="year"></span> Swinburne University of Technology
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const boxes = document.querySelectorAll(".box");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.2, // Trigger animation when 20% of the element is visible
+                }
+            );
+
+            boxes.forEach((box) => observer.observe(box));
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

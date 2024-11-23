@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Pie Chart with Year Selection</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="footer.css"> -->
+</head>
+
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Global Health Insights</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="map.html">GDP Overview</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pie.html">National Health Spending</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="hehe.html">Capital Health Spending</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#insights">Insights</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <h1>Health Expenditure Distribution by Country</h1>
+    <!-- <a href="#" class="back-home-button">Back to Home</a> -->
+    <section id="story" class="story-section">
+        <div class="container d-flex align-items-center">
+            <div class="story-icons col-md-2 text-center">
+                <img src="assets/heart.png" alt="Heart Icon" class="img-fluid icon">
+                <img src="assets/stethoscope.png" alt="Stethoscope Icon" class="img-fluid icon mt-4">
+            </div>
+            <div class="story-text col-md-6">
+                <h2>Our Overarching Story</h2>
+                <p>
+                    In a rapidly evolving world, economic disparities significantly impact global health outcomes.
+                    Countries with high GDP often allocate less towards healthcare relative to their wealth,
+                    while smaller nations prioritize healthcare investments to enhance citizens' well-being.
+                </p>
+                <p>
+                    This website presents a comprehensive analysis of global GDP distribution, national healthcare
+                    expenditures,
+                    and the stark contrasts in healthcare spending between nations and their capitals.
+                    Through visual storytelling, we aim to uncover the hidden patterns that shape global health
+                    trends
+                    and inspire data-driven decisions for a healthier world.
+                </p>
+            </div>
+            <div class="story-image col-md-4 text-center">
+                <img src="assets/hehe.webp" alt="Healthcare Illustration" class="img-fluid rounded">
+            </div>
+        </div>
+    </section>
+    <p class="text-center">Choose an indicator and year to explore data on the map</p>
+    <div class="container2">
+        <div id="controls">
+            <h3>Select Year</h3>
+            <select id="year-select">
+                <!-- Options sẽ được thêm động qua JavaScript -->
+            </select>
+            <h3>Select Countries</h3>
+            <button id="toggle-select">Select All</button>
+            <div id="country-list"></div>
+        </div>
+        <div id="chart-details-container">
+            <div id="chart-container">
+                <div id="chart"></div>
+            </div>
+            <div id="description">
+                <h3>Details</h3>
+                <div id="details-list"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Swinburne University of Technology</h3>
+            <p>Address: No 2, Duong Khue, Hanoi, Vietnam</p>
+            <p>Members: Duy Hung, Xuan Sang, Hoang Hai</p>
+            <div class="footer-year">
+                &copy; <span id="year"></span> Swinburne University of Technology
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("year").innerText = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
